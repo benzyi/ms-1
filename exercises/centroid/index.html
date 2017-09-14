@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--p5 core library CDN-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.min.js"></script>
+        <script>
+            var x = [];
+            var y = [];
+            var cX, cY;
+            var a;
+            
+            function setup() {
+                createCanvas(windowWidth, windowHeight);
+            }
+                //setting windowwidth and height just fills the windows
+                
+            function mouseReleased() {
+                
+                // x.push(mouseX);
+                // y.push(mouseY);
+                
+                // making sure first and last point are matching
+                if (x.length > 0) {
+                    x.splice(1, 0, mouseX);
+                    y.splice(1, 0, mouseY);
+                } else {
+                    x.push(mouseX);
+                    y.push(mouseY);
+                    x.push(mouseX);
+                    y.push(mouseY);
+                }
+                
+                display();
+            }
+            
+            function display() {
+                background('lightgray');
+                fill(255, 100, 0, 128);
+                
+                // return if there are insufficient points for an area
+                if (x.length < 3)
+                    return;
+                    
+                a = 0;
+                cX = 0;
+                cY = 0;
+        
+            
+                for (var i=0; i<x.length - 1; i++) {
+                    cX += (x[i] + x[i+1]) * (x[i] * y[i+1] - x[i+1] * y[i]);
+                    cY += (y[i] + y[i+1]) * (x[i] * y[i+1] - x[i+1] * y[i]);
+                    a += x[i] * y[i+1] - x[i+1] * y[i];
+                    //var i=0 gives the value to cX, and then += is the summation of it all
+                }
+                
+                a = 0.5 * a; // a*=.5;
+                cX = cX / (6*a); //cX /= 6*a;
+                cY = cY / (6*a); //cY /= 6*a;
+                //read as in cX = the math is here.
+                //ctrl + alt plus down arrows can edit multiple lines of code at once
+            
+                beginShape();
+                    for (var i=0; i<x.length; i++) {
+                        vertex(x[i], y[i]);
+                    }
+                endShape();
+                
+                fill('black');
+                ellipse(cX, cY, 10, 10);
+                
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
+        

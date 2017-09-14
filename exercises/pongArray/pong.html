@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--p5 core library-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.min.js"></script>
+    
+        <script>
+            //globals
+            var x = [],
+                y = [],
+                speedX = [],
+                speedY = [];
+            
+            var paddleColor;
+            var score = 0;
+            var quantity = 100;
+            
+            function setup() {
+                createCanvas(500, 500);
+                rectMode(CENTER);
+                for (var i=0; i<quantity; i++) {
+                    
+                    x[i] = random(width);
+                    y[i] = random(height);
+                    speedX[i] = random(-3, 3);
+                    speedY[i] = random(-3, 3);
+                }
+                //add random to speed and now it can go both ways with the 2 integers
+                //if there was a z, we could do three dimensions
+                paddleColor = color(255, 255, 0);
+            }
+            
+            function draw() {
+                background('lightgray');
+                fill('black');
+                
+                for (var i=0; i<quantity; i++) {
+                // position update
+                //x = x + speedX;
+                //y = y + speedY;
+                
+                x[i] += speedX[i];
+                y[i] += speedY[i];
+                //+= is an update to a variable, so use this or the other.
+                
+                // boundaries
+                //horizontal boundary
+                if (x[i] > width - 5 || x[i] < 5) {
+                    speedX[i] = speedX[i] * -1; // speedX *= -1;
+                }
+                // left boundary
+                /*if (x > 5) {
+                    speedX = speedX * -1;
+                }*/
+                    
+                // top boundary
+                if (y[i] < 5) {
+                    speedY[i] = speedY[i] * -1;
+                }
+                
+                //paddle boundary
+                if (y[i] >= height - 40 && abs(mouseX-x[i]) < width / 12 && y[i] < height - 25 + speedY[i]) {
+                    speedY[i] = speedY[i] * -1; //ySpeed *= -1;
+                    // fun items
+                    speedX[i] *= 1.05;
+                    speedY[i] *= 1.05;
+                    paddleColor = color(random(255), 0, 0);
+                    score++;
+                }
+                
+                //bottom boundary
+                /*if (y > height - 5) {
+                    speedY = speedY * -1; // speedY *= -1;
+                }*/
+                
+                ellipse(x[i], y[i], 10, 10);
+            }
+            fill(paddleColor);
+            rect(mouseX, height - 30, width / 6, 10, 5);
+            fill('black')
+            text(score, mouseX, height - 10);
+                
+            }
+            //refreshes the canvas here and sends the pixels out so the order matters
+            //highlight lines, alt + up and down arrow.
+            //even white space change, makes collaboration easy. even white space change makes everyone commit again
+            //Tools > Strip Trailing Space also helps clean it up
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

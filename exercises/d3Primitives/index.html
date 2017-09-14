@@ -2,18 +2,20 @@
 <html>
     <head>
         <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+
     </head>
     <body>
         <script>
             d3.select('body')
                 .append('svg')
-                .attr('width', window.innerHeight)
+                .attr('width', window.innerWidth)
                 .attr('height', 500);
                 
             var svg = d3.select('svg');
+            
             svg.append('circle')
                 .attr('r', 20)
-                .attr('cx', 50)
+                .attr('cx', 55)
                 .attr('cy', 75);
                 
             svg.append('rect')
@@ -21,6 +23,17 @@
                 .attr('height', 100)
                 .attr('x', 50)
                 .attr('y', 100);
+                
+            svg.append('rect')
+                .attr('width', 100)
+                .attr('height', 10)
+                .attr('x', 0)
+                .attr('y', 100);
+                
+            svg.append('polygon')
+                .attr('transform', 'scale(1) translate(120, 0)')
+                //transform properties have to be on one line and in same quotes
+                .attr('points', '60,30 100,50 100,90 60,110 20,90 20,50');
         </script>
     </body>
 </html>

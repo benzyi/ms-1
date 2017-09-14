@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--p5 core library-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.min.js"></script>
+    
+        <script>
+        function setup() {
+            createCanvas(800, 600);
+        }
+        
+        var x = 0;
+        var y = 0;
+        var speedx = 3;
+        var speedy = 3;
+        
+        function draw() {
+            background('white');
+            noStroke();
+            
+        mouseMoved();
+        createBall();
+        }
+        
+        function createBall() {
+            fill('black');
+            stroke(155);
+            strokeWeight(4); 
+            ellipse(x, y, 100, 100);
+        
+                
+            if(x > width) {
+                speedx = -3;
+                speedy = -3;
+            } else if (x < 0) {
+                speedx = 3;
+                speedy = -3;
+            }
+              if (y > height) {
+                speedx = 3;
+                speedy = -3;
+            } else if (y < 0) {
+                speedy = 3;
+                speedx = -3;
+            }
+          
+            
+        x = x + speedx;
+        y = y + speedy;
+        }
+        
+              function mouseMoved() {
+            fill('black');
+            rect(mouseX, 500, 150, 25);
+        }
+            
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html> 
