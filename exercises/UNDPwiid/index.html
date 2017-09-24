@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+    </head>
+    <style type="text/css">
+         body {
+            font-family: sans-serif;
+        }
+    </style>
+    <body>
+        <div id='target'></div>
+        
+        <script>
+            var graph = d3.select('#target')
+                .append('svg')
+                .attr('width', window.innerWidth)
+                .attr('height', window.innerHeight);
+            
+            d3.json('gini.json', function(error, data) {
+                if (error) throw error;
+                
+                svg(data);
+            })
+            //visualization starts here
+            function svg(data) {
+                var tmp = [];
+                for(var i in data) {
+                    tmp.push(data[i].Gini)
+                }
+                var max = d3.max(tmp);
+                console.log(max);
+                
+                var x = d3.scaleLinear()
+                    .domain([0, 61])
+                    .range([0, window.innerWidth]);
+                    
+                var y = d3.scaleLinear()
+                    .domain([0, max])
+                    .range([0, 0.8*window.innerHeight]);
+                    
+                graph.append('g')
+                //g is protected and it makes a group
+                    .attr('id', 'group');
+                    
+                var group = graph.select('#group')
+                    .selectAll('g')
+                    .data(data)
+                    //data joined with our data payload
+                    .enter()
+                    .append('g')
+                    .attr('x', function(d, i) {
+                        return x(i);
+                    })
+                    .attr('transform', function(d, i) {
+                        return 'translate(' + x(i) + ', ' + 0 + ')';
+                    });
+                
+                group.append('rect')
+                    .attr('class', 'bar')
+                    //attributing a class to call it at diff places. bar is just the name of the class
+                    .attr('y', function(d, i) { return window.innerHeight-y(d.Gini);})
+                    .attr('x', function(d, i) { return ((d.Year-1950)/61)*0.8*window.innerWidth + 15;})
+                    .attr('width', function(d, i) { return '1px';})
+                    //can also just specify the px, but to make it more responsive, just put the first x.
+                    .attr('height', function(d, i) { return y(d.Gini); });
+                    
+                group.append('circle')
+                .attr('r', 10)
+                .attr('cx', function(d, i) { return ((d.Year-1950)/61)*0.8*window.innerWidth + 16;})
+                .attr('cy', function(d, i) { return window.innerHeight-y(d.Gini);});
+                // .attr('width', function(d, i) { return '5px';});
+                
+                group.append('text')
+                    .text(function(d) { return d.Gini })
+                    .attr('transform', function (d, i) { return 'translate(' + (((d.Year-1950)/61)*0.8*window.innerWidth + 22) +  ', ' + (window.innerHeight-y(d.Gini) - 15) + ')rotate(-90)'; });
+                    // .attr('transform', function (d, i) { return ((((d.Year-1950)/61)*0.8*window.innerWidth + 14) + (x(1)/2) + (window.innerHeight-y(d.Gini))); });
+                    
+                group.append('text')
+                    .text(function(d) { return (d.Country + ', ' + d.Year); })
+                    // .attr('x', function(d, i) { return 'translate(' + (x(1)/2) +  ', ' + (window.innerHeight-y(d.Gini)) + ')rotate(-90)' + ((d.Year-1950)/61)*0.2*window.innerWidth + 15;});
+                    .attr('transform', function (d, i) { return 'translate(' + (((d.Year-1950)/61)*0.8*window.innerWidth + 14) +  ', ' + (window.innerHeight - 5) + ')rotate(-90)'; });
+            }
+                    
+
+        </script>
+    </body>
+</html>

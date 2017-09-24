@@ -1,0 +1,56 @@
+[
+  {
+    "Country": "Kenya",
+    "Year": 1950,
+    "Gini": 70,
+    "id": 1
+  },
+  {
+    "Country": "Kenya",
+    "Year": 1971,
+    "Gini": 70,
+    "id": 2
+  },
+  {
+    "Country": "Mauritania",
+    "Year": 1987,
+    "Gini": 76,
+    "id": 3
+  },
+  {
+    "Country": "Zambia",
+    "Year": 1991,
+    "Gini": 77.3,
+    "id": 4
+  },
+  {
+    "Country": "Tanzania",
+    "Year": 1991,
+    "Gini": 72,
+    "id": 5
+  },
+  {
+    "Country": "Namibia",
+    "Year": 1993,
+    "Gini": 74.3,
+    "id": 6
+  },
+  {
+    "Country": "Mali",
+    "Year": 1994,
+    "Gini": 78.6,
+    "id": 7
+  },
+  {
+    "Country": "Zimbabwe",
+    "Year": 1995,
+    "Gini": 70.3,
+    "id": 8
+  },
+  {
+    "Country": "South Africa",
+    "Year": 2011,
+    "Gini": 77.1,
+    "id": 9
+  }
+]
