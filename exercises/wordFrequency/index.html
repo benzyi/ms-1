@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<head>
+
+    <body>
+        <br>
+        <h1>
+            <center>The Big Three</center>
+        </h1>
+        <p>This word frequency attempts to look at the factors surrounding education, policy, and agriculture to make sense of the successes made by the three countries: Ghana, Tanzania, and Burkina Faso.</p>
+        <div id='target'></div>
+        <!--p5js download: https://p5js.org/download/-->
+        <!--Content Delivery Network (CDN): https://cdnjs.com/libraries/p5.js-->
+        <title>Word Frequency</title>
+        <!--p5 core library, minified-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.13/p5.min.js" type="text/javascript"></script>
+        <!--p5 interaction with the DOM-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.13/addons/p5.dom.min.js" type="text/javascript"></script>
+        <script>
+            var wordFrequency = [];
+            var dictionary = [];
+            var wordCount;
+            var textX = 20; //pixels to keep it from the border
+
+            function setup() {
+                createCanvas(windowWidth, windowHeight);
+                loadStrings('./countries.txt', analyze);
+                loadStrings('./countries2.txt', analyzee);
+            }
+            //analyze is the call back -- can call it whatever
+            function analyzee(countries) {
+                // console.log(chapter14);
+
+                countries.forEach(function(phrasess) {
+                    //phrases can be named whatever
+                    // console.log(phrases);
+                    // RegEx https://regexr.com/
+                    // phrases = phrases.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, ''); // list of special charecters to replace
+                    phrasess = phrasess.replace(/[^\w\s]/gi, '').replace(/\s\w\w\w\s/gi, '').replace(/\s\w\s/gi, '').replace(/\s\w\w\s/gi, '').replace(/the|cent|per|this|that|with|from|than/gi, ''); // The caret (^) character is the negation of the set [...], gi is global and case-insensitive and the safelist in this example is digits, word characters (\w), and whitespace (\s).
+                    // console.log(phrases)
+                    var words = phrasess.split(' ');
+                    //that space is just splitting it where the spaces in the text is. can also be commas and such is CSV.
+                    words.forEach(function(word) {
+                        // console.log(word);
+
+                        wordCountt = dictionary.filter(function(element) {
+                            //filter function is taking the word and adding to the wordFrequency array.
+                            return element.word == word;
+                        });
+
+                        if (wordCountt.length)
+                            //could also be if(wordCount.length == true), but not neccessary. this is a shortcut.
+                            wordCountt[0].count++;
+                        //so if the wordCount length is nothing, it'll increase it by 1.
+                        //nothing in dictionary at this point, so it will go to ELSE and will push the first word.
+                        //next time, it'll increment it with ++
+                        //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+                        else
+                            // wordCount[0].count = 0;
+                            dictionary.push({ word: word, count: 1 });
+                        //first word is the function, second word is the json
+
+                    });
+
+                    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+                    dictionary.sort(function(a, b) {
+                        return b.count - a.count;
+                    });
+                });
+
+                // console.log(wordFrequency);
+                display();
+            }
+
+
+            // new function end
+
+
+            function analyze(chapter14) {
+                // console.log(chapter14);
+
+                chapter14.forEach(function(phrases) {
+                    //phrases can be named whatever
+                    // console.log(phrases);
+                    // RegEx https://regexr.com/
+                    // phrases = phrases.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, ''); // list of special charecters to replace
+                    phrases = phrases.replace(/[^\w\s]/gi, '').replace(/\s\w\w\w\s/gi, ' ').replace(/\s\w\s/gi, ' ').replace(/\s\w\w\s/gi, ' ').replace(/the|cent|per|this|that|with|from|than|also/gi, ' '); // The caret (^) character is the negation of the set [...], gi is global and case-insensitive and the safelist in this example is digits, word characters (\w), and whitespace (\s).
+                    console.log(phrases)
+                    var words = phrases.split(' ');
+                    //that space is just splitting it where the spaces in the text is. can also be commas and such is CSV.
+                    words.forEach(function(word) {
+                        // console.log(word);
+
+                        wordCount = wordFrequency.filter(function(element) {
+                            //filter function is taking the word and adding to the wordFrequency array.
+                            return element.word == word;
+                        });
+
+                        if (wordCount.length)
+                            //could also be if(wordCount.length == true), but not neccessary. this is a shortcut.
+                            wordCount[0].count++;
+                        //so if the wordCount length is nothing, it'll increase it by 1.
+                        //nothing in dictionary at this point, so it will go to ELSE and will push the first word.
+                        //next time, it'll increment it with ++
+                        //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+                        else
+                            // wordCount[0].count = 0;
+                            wordFrequency.push({ word: word, count: 1 });
+                        //first word is the function, second word is the json
+
+                    });
+
+                    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+                    wordFrequency.sort(function(a, b) {
+                        return b.count - a.count;
+                    });
+                });
+
+                // console.log(wordFrequency);
+                display();
+            }
+
+            function display() {
+                background("clear");
+                translate(textX, windowHeight / 8); //made up textX. also can use height instead of windowheight at this point.
+
+                wordFrequency.forEach(function(element) {
+                    // textSize(20);
+                    // text(element.word, 0, 0);
+                    if (element.word == 'education' || element.word == 'agriculture' || element.word == 'policy') {
+                        textSize(35)
+                        fill("#99ccff")
+                        text(element.word, 0, 0)
+
+                    }
+                    else if (element.word == 'Ghana' || element.word == 'Burkina' || element.word == 'Tanzania' || element.word == 'Faso') {
+                        textSize(25)
+                        fill("#ffcc00")
+                        text(element.word, 0, 0)
+                    }
+                    else if (element.word == 'access' || element.word == 'health' || element.word == 'quality'|| element.word == 'water'|| element.word == 'productivity' || element.word == 'school') {
+                        textSize(25)
+                        fill("#00cc99")
+                        text(element.word, 0, 0)
+                    }
+                    else if (element.word == 'progress' || element.word == 'women' || element.word == 'economic' || element.word == 'social' || element.word == 'services'  || element.word == 'public'|| element.word == 'market' || element.word == 'skills') {
+                        textSize(20)
+                        fill("#ff9999")
+                        text(element.word, 0, 0)
+                    }
+                    else {
+                        textSize(10)
+                        fill("gray")
+                        text(element.word, 0, 0)
+                    }
+
+                    var txtWidth = textWidth(element.word);
+                    translate(10, 20);
+                });
+
+                //   dictionary.forEach(function(element) {
+                //     textSize(20);
+                //     // text(element.word, 0, 0);
+                //     if (element.word == 'Ghana' || element.word == 'Burkina' || element.word == 'Tanzania') {
+                //         fill(255, 0, 0)
+                //         text(element.word, 0, 0)
+                //     } else {
+                //         fill("black")
+                //         text(element.word, 0, 0)
+                //     }
+
+                //     var txtWidth = textWidth(element.word);
+                //     translate(0, 30);
+                // });
+
+            }
+
+            function mouseDragged() {
+                //click down and move, it calls 1 px
+                windowHeight += mouseY - pmouseY; //previous mouseX
+                display();
+            
+            }
+        </script>
+</head>
+
+<body>
+</body>
+
+</html>
