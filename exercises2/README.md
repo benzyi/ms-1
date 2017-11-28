@@ -1,6 +1,6 @@
 # Unequal Development
 
-## This visualization observes countries that had a Gini coefficient of 70 or above at any period of time. Eight countries are in this very exclusive club of having been recorded with the highest income inequality in the world, and all eight happen to be African countries.
+### This visualization observes countries that had a Gini coefficient of 70 or above at any period of time. Eight countries are in this very exclusive club of having been recorded with the highest income inequality in the world, and all eight happen to be African countries.
 
 [![preview.png](preview.png)](https://benzyi.github.io/ms-1/exercises2/UNDPwiid/preview.png)
 
