@@ -1,0 +1,65 @@
+[
+  {
+    "Country": "Kenya",
+    "Year": 1950,
+    "Gini": "70",
+    "id": 1,
+    "Description": "The Mau Mau Uprising (1952–60) was a war in British Kenya. The Mau Mau groups of people, politically dominated by the Kikuyu people, fought against the white European settlers in Kenya and the British Army."
+  },
+  {
+    "Country": "Kenya",
+    "Year": 1971,
+    "Gini": "70 ",
+    "id": 2,
+    "Description": "The plantations formerly owned by white settlers were broken up and given to farmers, with the Kikuyu the favoured recipients, along with their allies the Embu and the Meru."
+  },
+  {
+    "Country": "Mauritania",
+    "Year": 1987,
+    "Gini": 76,
+    "id": 3,
+    "Description": "In October 1987, the government allegedly uncovered a tentative coup d'État by a group of black army officers, backed, according to the authorities, by Senegal. Fifty one officers were arrested and tortured."
+  },
+  {
+    "Country": "Zambia",
+    "Year": 1991,
+    "Gini": 77.3,
+    "id": 4,
+    "Description": "The first multi-party elections since 1968, and only the second multi-party elections since independence in 1964."
+  },
+  {
+    "Country": "Tanzania",
+    "Year": 1991,
+    "Gini": 72,
+    "id": 5,
+    "Description": "After recently holding a one-party election, they lifted their ban on other political parties in 1992."
+  },
+  {
+    "Country": "Namibia",
+    "Year": 1993,
+    "Gini": 74.3,
+    "id": 6,
+    "Description": "After over 100 years of German and South African control, they gained independence in 1990."
+  },
+  {
+    "Country": "Mali",
+    "Year": 1994,
+    "Gini": 78.6,
+    "id": 7,
+    "Description": "They were in the midst of a civil war that lasted from 1990-1995."
+  },
+  {
+    "Country": "Zimbabwe",
+    "Year": 1995,
+    "Gini": 70.3,
+    "id": 8,
+    "Description": "Coming out of a 25-year state of emergency and recently becoming a republic, in 1995, held parliamentary elections where the ZANU-PF won unopposed for nearly half the seats."
+  },
+  {
+    "Country": "South Africa",
+    "Year": 2011,
+    "Gini": 77.1,
+    "id": 9,
+    "Description": "2007: Zuma an indictment to stand trial in the High Court on various counts of racketeering, money laundering, corruption and fraud. Zuma was sworn in as President of South Africa on 9 May 2009."
+  }
+]
