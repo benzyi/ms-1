@@ -4,131 +4,167 @@
 <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <link rel='stylesheet' href='bootstrap.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+            body {
+                background-color: lightgray;
+            }
+            .container {
+                /*width: 100vw !important;    */
+                z-index: 0;
+            }
+            /*important overrides everything*/
+            
+            header {
+                position: fixed;
+                min-height: 50px;
+                width: 16%;
+                vertical-align: top;
+                z-index: 1;
+                margin: auto;
+                background-color: powderblue;
+                padding: 25px;
+            }
+            
+            p1 {
+                font-size: medium;
+                position: relative;
+            }
+            
+            /*h1 {*/
+            /*    position: fixed;*/
+            /*    padding: 20px;*/
+            /*}*/
+            
+            div {
+                /*background-color: pink;*/
+                /*border: 1px dashed white;*/
+                border-top: 1px black;
+                min-height: 2em;
+            }
+            
+            div:hover {
+                /*border-top: 2px solid black;*/
+            }
+            
+            /*div > div > div:hover {*/
+            /*    background-color: snow;*/
+                /*font-weight: bolder;*/
+            /*}*/
+            
+            footer {
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+                min-height: 50px;
+                box-shadow: 0px 0px 5px white;
+                vertical-align: bottom;
+                background-color: snow;
+            }
+            
+            footer div {
+                border: 0px;
+                padding: 1px;
+                font-size: small;
+            }
+            
+            svg {
+                background-color: snow;
+            }
+            
+            .col-md-6 {
+                background-color: powderblue;
+                position: relative;
+                
+            }
+            
+            .col-lg-8 {
+                background-color: powderblue;
+                position: relative;
+                padding: 25px;
+                padding-top: 35px;
+                
+            }
+            
+            .col-md-2 {
+                background-color: powderblue;
+                position: relative;
+                min-height: 100px;
+                padding: 25px;
+            }
+            
+            .col-sm-2 {
+                background-color: powderblue;
+                position: relative;
+                min-height: 50px;
+                padding: 35px;
+                padding-top: 55px;
+            }
+            
+            
+            .col-sm-3 {
+                background-color: powderblue;
+                padding: 20px;
+                vertical-align: bottom;
+            }
+            
+            .col-xl-10 {
+                padding-bottom: 25px;
+            }
+            
+            .content {
+                background-color: snow;
+                padding-top: 150px;
+                padding-top: 100px;
+            }
+            
+            .mv_test {
+                font-weight: bolder;
+                word-wrap: break-word;
+            }
+            
+            .mv_test1 {
+                font-weight: bolder;
+                word-wrap: break-word;
+                max-width: 200px;
+            }
+            
+            .years {
+                font-size: 40px;
+                font-weight: bolder;
+                
+            }
+          
+        </style>
 </head>
-<style type="text/css">
-
-    body {
-        font-family: "Open Sans", Helvetica, sans-serif;
-        background-color: aliceblue;
-    }
-    
-    p {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-    
-    h1 {
-        font-family: "Open Sans", Helvetica, sans-serif;
-        color: black;
-        padding-left: 25px;
-        padding-top: 25px;
-        text-align: left;
-    }
-    
-    .break-word {
-		word-wrap: break-word;
-    }
-
-    .mv_test {
-        font-family: sans-serif;
-        fill: dodgerblue;
-    }
-
-    .mv_test1 {
-        font-family: sans-serif;
-        fill: black;
-    }
-
-    .test1 {
-        position: absolute;
-        font-family: sans-serif;
-    }
-
-    .axis {
-        position: absolute;
-        bottom: 0;
-    }
-
-    .container {
-        width: 75vw !important;
-        margin: auto;
-        /*width: 75%;*/
-    }
-
-    /*important overrides everything*/
-
-    div {
-        /*background-color: pink;*/
-        /*border: 1px dashed white;*/
-        border-top: 1px dotted black;
-        min-height: 2em;
-        width: 500px;
-    }
-
-    div:hover {
-        border-top: 2px solid black;
-    }
-
-    div>div>div:hover {
-        background-color: white;
-    }
-
-    footer {
-        position: relative;
-        width: 100%;
-        bottom: 0;
-        min-height: 100px;
-        box-shadow: 0px 0px 5px white;
-    }
-
-    footer div {
-        border: 0px;
-        padding: 1px;
-        font-size: small;
-    }
-
-    svg {
-        background-color: azure;
-    }
-    
-    a:link {
-        color: LightSkyBlue ;
-    }
-    
-    a:hover {
-        color: powderblue;
-    }
-    
-    a:visited {
-        color: LightSkyBlue ;
-    }
-    
-    a:active {
-        color: powderblue;
-    }
-</style>
 
 <body>
-    <div class="break-word">
-    <h1>
-        The Most Unequal Times
-    </h1>
-    <p>This is a selection of countries with a Gini coefficient of 70 or above as recorded by the United Nation Development Programme. All countries happen to be African countries, with South Africa being the most recent to join the ranks of the highest
-        income inequality in the world. All of these nations have had a significant series of political turmoil around the time of their entering this Club. It is unclear what significant events led up to South Africa's debut.</p>
-    <!--<p>Zimbabwe: Coming out of a 25-year state of emergency and recently becoming a republic, in 1995, held parliamentary elections where the ZANU-PF won unopposed for nearly half the seats.</p>-->
-    <!--<p>Tanzania: After recently holding a one-party election, they lifted their ban on other political parties in 1992.</p>-->
-    <!--<p>Namibia: After over 100 years of German and South African control, they gained independence in 1990.</p>-->
-    <!--<p>Mali: They were in the midst of a civil war that lasted from 1990-1995.</p>-->
-    </div>
-    <div id='target'></div>
-
-    <script>
+    
+    <header>
+    <!--<div class='container'>-->
+        <h1>The Most Unequal Times</h1>
+            <!--    <div class = 'col-lg-8'><p1>This is a selection of countries with a Gini coefficient of 70 or above as recorded by the United Nation Development Programme. All countries happen to be African countries, with South Africa being the most recent to join the ranks of the highest-->
+            <!--    income inequality in the world. All of these nations have had a significant series of political turmoil around the time of their entering this Club. It is unclear what significant events led up to South Africa's debut.</p1></div>-->
+            
+    <!--</div>-->
+    
+    </header>
+    
+    <!--<div class='container'>-->
+        <div class ='content'>
+            <div class ='row'>
+            <div class = 'col-sm-2'>This is a selection of countries with a Gini coefficient of 70 or above as recorded by the United Nation Development Programme. All countries happen to be African countries, with South Africa being the most recent to join the ranks of the highest
+                income inequality in the world. All of these nations have had a significant series of political turmoil around the time of their entering this Club. It is unclear what significant events led up to South Africa's debut.
+            </div>
+            <div class = 'col-xl-10'>
+                <div id='target'></div>
+                <script>
         var graph = d3.select('#target')
             .append('svg')
             .attr('width', window.innerWidth)
             .attr('height', window.innerHeight);
 
-        d3.json('gini.json', function(error, data) {
+        d3.json('./gini.json', function(error, data) {
             if (error) throw error;
 
             svg(data);
@@ -141,14 +177,15 @@
             }
             var max = d3.max(tmp);
             // console.log(max);
-
-            var x = d3.scaleLinear()
-                .domain([0, 61])
-                .range([0, window.innerWidth]);
+            // max is 78.6
 
             var y = d3.scaleLinear()
+                .domain([0, 40])
+                .range([0, window.innerHeight]);
+
+            var x = d3.scaleLinear()
                 .domain([0, max])
-                .range([0, 0.8 * window.innerHeight]);
+                .range([0, window.innerWidth]);
 
             graph.append('g')
                 //g is protected and it makes a group
@@ -162,67 +199,65 @@
                 .append('g')
                 .attr('data-attr-for-g', function(d) { return d.Gini })
                 .attr('data-attr-for-h', function(d) { return d.Gini })
-                .attr('y', function(d, i) {
-                    return y(i);
+                .attr('x', function(d, i) {
+                    return x(i);
                 })
                 .attr('transform', function(d, i) {
-                    return 'translate(' + y(i) + ', ' + 0 + ')';
+                    return 'translate(' + 0 + ', ' + x(i) + ')';
                 });
 
             group.append('rect')
                 .attr('class', 'bar')
                 //attributing a class to call it at diff places. bar is just the name of the class
-                .attr('y', function(d, i) { return window.innerHeight - y(d.Gini) - 30; })
-                .attr('x', function(d, i) { return ((d.Year - 1950) / 61) * 0.8 * window.innerWidth + 15; })
-                .attr('width', function(d, i) { return '1px'; })
+                .attr('x', 150)
+                .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 15; })
+                .attr('height', function(d, i) { return '5px'; })
                 //can also just specify the px, but to make it more responsive, just put the first x.
-                .attr('height', function(d, i) { return y(d.Gini); });
+                .attr('width', function(d, i) { return x(d.Gini) / 4; });
 
-            group.append('rect')
+            group.append('rect') //country and year
                 .attr('class', function(d, i) { return "test" }) //so whenever the actual gini coefficient is called, it will refer to here.
                 .attr('data-arr', function(d, i) { return d.Gini })
                 // .attr('class', 'test')
-                .attr('y', function(d, i) { return window.innerHeight - y(d.Gini) + 5; })
-                .attr('x', function(d, i) { return ((d.Year - 1950) / 61) * 0.8 * window.innerWidth + 35; })
-            // .attr('width', '300px')
-            // //can also just specify the px, but to make it more responsive, just put the first x.
-            // .attr('height', '300px')
-            // .style('fill', 'lightgrey')
-            // .attr('visibility', 'hidden');
-            // .style('opacity', 0)
+                .attr('x', function(d, i) { return x(d.Gini) - (window.innerWidth * 0.3); })
+                .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 20; })
+            
+            group.append('text') //bold years static
+                .attr('class', 'years')
+                .attr('x', window.innerWidth * .025)
+                .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 30;})
+                .text(function(d,i) { return d.Year })
+                .style('fill', 'powderblue')
+                
+            group.append('rect') //desc
+                .attr('class', function(d, i) { return "test" }) //so whenever the actual gini coefficient is called, it will refer to here.
+                .attr('data-arr2', function(d, i) { return d.Description })
+                .attr('x', function(d, i) { return x(d.Gini) - (window.innerWidth * 0.3); })
+                .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 40; })
+                
+
+            // group.append('text')
+            //     .attr('class', function(d, i) { return "test1" }) //so whenever the actual gini coefficient is called, it will refer to here.
+            //     .attr('data-arr1', function(d, i) { return d.Gini })
+            //     .attr('y', function(d, i) { return ((d.Year - 1950) / 61) * 0.8 * window.innerHeight + 20; })
+            //     .attr('x', function(d, i) { return x(d.Gini) - (window.innerWidth * 0.3); })
+            //     .attr('width', '500px')
+            //     .attr('height', '500px')
+            //     .style('fill', 'dodgerblue')
+            //     .style('opacity', 0)
+            //     .text(function(d, i) { return d.Description });
 
             // group.append('rect')
-            //     .attr('class',function(d, i) { return "test1" }) //so whenever the actual gini coefficient is called, it will refer to here.
-            //     .attr('data-arr1',function(d, i) { return d.Gini })
-            //     .attr('y', window.innerHeight/32)
-            //     .attr('x', 10)
+            //     .attr('class', 'axis')
+            //     .attr('y', window.innerHeight)
             //     .attr('width', window.innerWidth)
-            //     .attr('height', '100px')
-            //     .style('fill', 'lightgrey')
-            //     .style('opacity', 0)
-
-            group.append('text')
-                .attr('class', function(d, i) { return "test1" }) //so whenever the actual gini coefficient is called, it will refer to here.
-                .attr('data-arr1', function(d, i) { return d.Gini })
-                .attr('y', window.innerHeight / 32)
-                .attr('x', 0)
-                .attr('width', '500px')
-                .attr('height', '500px')
-                .style('fill', 'dodgerblue')
-                .style('opacity', 0)
-                .text(function(d, i) { return d.Description });
-
-            group.append('rect')
-                .attr('class', 'axis')
-                .attr('y', window.innerHeight - 30)
-                .attr('width', window.innerWidth)
-                .attr('height', '15px')
-                .style('fill', 'black')
+            //     .attr('height', '15px')
+            //     .style('fill', 'black')
 
             group.append('circle')
                 .attr('r', 10)
-                .attr('cx', function(d, i) { return ((d.Year - 1950) / 61) * 0.8 * window.innerWidth + 16; })
-                .attr('cy', function(d, i) { return window.innerHeight - y(d.Gini) - 30; })
+                .attr('cy', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 18; })
+                .attr('cx', function(d, i) { return (x(d.Gini) / 4) + 150; })
                 // .attr('width', function(d, i) { return '5px';});
                 .on('mouseover', function() {
                     var ginitest = d3.select(this).datum().Gini;
@@ -237,22 +272,45 @@
                                 };
                             });
                             var desc = d3.select(this).datum().Description;
+                            var desc1 = d3.select(this).datum().DescriptionOne;
+                            var desc2 = d3.select(this).datum().DescriptionTwo;
                             var country = d3.select(this).datum().Country;
                             var year = d3.select(this).datum().Year;
                             _g.append('text')
-                                .attr('x', d3.select(this).attr('x'))
-                                .attr('y', d3.select(this).attr('y') - 30)
                                 .attr('class', 'mv_test')
-                                .text(country + " " + "(" + year + ")")
-                                .style('opacity', 1)
+                                .attr('x', (window.innerWidth / 2.5))
+                                .attr('y', d3.select(this).attr('y'))
 
+                                .text(country + " " + "(" + d.Gini + ")")
+                                .style('opacity', 1)
+                                
+                            _g.append('text')
+                                .attr('class', 'mv_test1')
+                                .attr('x', (window.innerWidth / 2.5))
+                                .attr('y', (function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 40; }))
+                                .text(desc)
+                                .style('opacity', 1)
+                                
+                            _g.append('text')
+                                .attr('class', 'mv_test1')
+                                .attr('x', (window.innerWidth / 2.5))
+                                .attr('y', (function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 60; }))
+                                .text(desc1)
+                                .style('opacity', 1)
+                                
+                            _g.append('text')
+                                .attr('class', 'mv_test1')
+                                .attr('x', (window.innerWidth / 2.5))
+                                .attr('y', (function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 80; }))
+                                .text(desc2)
+                                .style('opacity', 1)
+                                
                             // _g.append('text')
-                            //     .attr('x',d3.select(this).attr('x'))
-                            //     .attr('y',d3.select(this).attr('y'))
-                            //     .attr('class','mv_test1')
+                            //     .attr('class', 'tooltiptext')
+                            //     .attr('x', (window.innerWidth / 2.5))
+                            //     .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 18; })
                             //     .text(desc)
                             //     .style('opacity', 1)
-
                         };
                     })
 
@@ -264,22 +322,7 @@
                                     return d3.select(this)
                                 };
                             });
-                            var desc = d3.select(this).datum().Description;
-                            var country = d3.select(this).datum().Country;
-                            var year = d3.select(this).datum().Year;
-                            // _g.append('text')
-                            //     .attr('x',d3.select(this).attr('x'))
-                            //     .attr('y',d3.select(this).attr('y'))
-                            //     .attr('class','mv_test')
-                            //     .text(country + " " + "(" + year + ")")
-                            //     .style('opacity', 1)
-
-                            // _g.append('text')
-                            //     .attr('x',d3.select(this).attr('x'))
-                            //     .attr('y',d3.select(this).attr('y'))
-                            //     .attr('class','mv_test1')
-                            //     .text(desc)
-                            //     .style('opacity', 1)
+                    
 
                         };
                     })
@@ -309,7 +352,12 @@
                         .transition()
                         .delay(1000)
                         .style('opacity', 0)
-
+                    d3.selectAll('.mv_test1')
+                        .transition()
+                        .delay(1000)
+                        .ease(Math.sqrt)
+                        .style('opacity', 0)
+                        
                     // d3.select('text')
                     //     .style('fill', 'black');
                 })
@@ -321,12 +369,14 @@
 
         };
     </script>
+            </div>
+            </div>
+        </div>
+    <!--</div>-->
+    
+    
 
-   
-
-
-    <body>
-        <!--Container-->
+        
         <div class='container'>
             <center><b>Understanding South Africa's Income Inequality</b></center>
             <div class='row'>
