@@ -4,7 +4,7 @@
 <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <link rel='stylesheet' href='bootstrap.min.css'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="d3-tip.js"></script>
 <style>
             body {
                 background-color: lightgray;
@@ -127,6 +127,7 @@
             .mv_test {
                 font-weight: bolder;
                 word-wrap: break-word;
+                font-size: 20px;
             }
             
             .mv_test1 {
@@ -136,10 +137,20 @@
             }
             
             .years {
-                font-size: 40px;
+                font-size: 30px;
                 font-weight: bolder;
-                
             }
+            
+            .d3-tip {
+                font-size: 12px;
+                line-height: 1;
+                padding: 7px;
+                background: black;
+                color: snow;
+                border-radius: 5px;
+                width: 200px;
+            }
+            
           
         </style>
 </head>
@@ -192,11 +203,29 @@
             var x = d3.scaleLinear()
                 .domain([0, max])
                 .range([0, window.innerWidth]);
+                
+            //tooltip starts here
+            
+            var tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([-10, 0])
+                .html(function(d) {
+                    return d.Description;
+                });
+    
+            var svg = d3.select("body").append("svg")
+                .attr('visibility', 'hidden');
+
+            svg.call(tip);
+            
+            //tooltip ends here
+            
+            // d3.select('graph').call(tip);
 
             graph.append('g')
                 //g is protected and it makes a group
                 .attr('id', 'group');
-
+                
             var group = graph.select('#group')
                 .selectAll('g')
                 .data(data)
@@ -219,7 +248,32 @@
                 .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 15; })
                 .attr('height', function(d, i) { return '5px'; })
                 //can also just specify the px, but to make it more responsive, just put the first x.
-                .attr('width', function(d, i) { return x(d.Gini) / 4; });
+                .attr('width', function(d, i) { return x(d.Gini) / 4; })
+                .style('fill', 'red')
+                
+                .on('mouseover', function(){
+                    d3.select(this)
+                    .style('fill', 'powderblue')
+                    .attr('height', '8px')
+                })
+                .on('mouseout', function(){
+                    d3.select(this)
+                    .transition()
+                    .delay(500)
+                    .ease(Math.sqrt)
+                    .attr('height', '5px')
+                    .style('fill', 'red')
+                })
+                
+
+            group.append('rect')
+                .attr('class', 'hundred')
+                .attr('x', 150)
+                .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 15; })
+                .attr('height', '5px')
+                .attr('width', function(d,i) { return x(d.max) / 4; } )
+                .style('fill', 'lightgray')
+                .style('opacity', '0.25');
 
             group.append('rect') //country and year
                 .attr('class', function(d, i) { return "test" }) //so whenever the actual gini coefficient is called, it will refer to here.
@@ -233,7 +287,7 @@
                 .attr('x', window.innerWidth * .025)
                 .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 30;})
                 .text(function(d,i) { return d.Year })
-                .style('fill', 'powderblue')
+                .style('fill', 'black')
                 
             group.append('rect') //desc
                 .attr('class', function(d, i) { return "test" }) //so whenever the actual gini coefficient is called, it will refer to here.
@@ -263,8 +317,14 @@
             group.append('circle')
                 .attr('r', 10)
                 .attr('cy', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 18; })
-                .attr('cx', function(d, i) { return (x(d.Gini) / 4) + 150; })
+                .attr('cx', function(d, i) { return (x(d.Gini) / 4) + 160; })
+                .style('fill', 'red')
+                .attr('class', 'circletime')
                 // .attr('width', function(d, i) { return '5px';});
+                //tooltip start
+                .on('click', tip.show)
+                .on('mouseleave', tip.hide)
+                //tooltip end
                 .on('mouseover', function() {
                     var ginitest = d3.select(this).datum().Gini;
                     d3.selectAll('.test').filter(function(d, i) {
@@ -278,47 +338,27 @@
                                 };
                             });
                             var desc = d3.select(this).datum().Description;
-                            var desc1 = d3.select(this).datum().DescriptionOne;
-                            var desc2 = d3.select(this).datum().DescriptionTwo;
                             var country = d3.select(this).datum().Country;
                             var year = d3.select(this).datum().Year;
-                            _g.append('text')
+                            _g.append('text') //country and gini on hover
                                 .attr('class', 'mv_test')
-                                .attr('x', (window.innerWidth / 2.5))
-                                .attr('y', d3.select(this).attr('y'))
+                                .attr('x', (window.innerWidth / 2.32))
+                                .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 23; })
 
                                 .text(country + " " + "(" + d.Gini + ")")
                                 .style('opacity', 1)
-                                
-                            _g.append('text')
-                                .attr('class', 'mv_test1')
-                                .attr('x', (window.innerWidth / 2.5))
-                                .attr('y', (function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 40; }))
-                                .text(desc)
-                                .style('opacity', 1)
-                                
-                            _g.append('text')
-                                .attr('class', 'mv_test1')
-                                .attr('x', (window.innerWidth / 2.5))
-                                .attr('y', (function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 60; }))
-                                .text(desc1)
-                                .style('opacity', 1)
-                                
-                            _g.append('text')
-                                .attr('class', 'mv_test1')
-                                .attr('x', (window.innerWidth / 2.5))
-                                .attr('y', (function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 80; }))
-                                .text(desc2)
-                                .style('opacity', 1)
-                                
-                            // _g.append('text')
-                            //     .attr('class', 'tooltiptext')
-                            //     .attr('x', (window.innerWidth / 2.5))
-                            //     .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 18; })
-                            //     .text(desc)
-                            //     .style('opacity', 1)
-                        };
-                    })
+                            _g.append('rect') //higlighted bar on hover
+                                .attr('class', 'bar1')
+                                //attributing a class to call it at diff places. bar is just the name of the class
+                                .attr('x', 150)
+                                .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 14; })
+                                .attr('height', function(d, i) { return '8px'; })
+                                //can also just specify the px, but to make it more responsive, just put the first x.
+                                .attr('width', function(d, i) { return x(d.Gini) / 4; })
+                                .style('fill', 'powderblue')
+
+                                };
+                            })
 
                     d3.selectAll('.test1').filter(function(d, i) {
                         if (d3.select(this).attr('data-arr1') == ginitest) {
@@ -352,7 +392,8 @@
                         .style('opacity', 0)
                     d3.select(this)
                         .transition()
-                        .style('fill', 'black')
+                        .delay(100)
+                        .style('fill', 'red')
                         .style('r', "10")
                     d3.selectAll('.test1')
                         .transition()
@@ -363,6 +404,14 @@
                         .delay(1000)
                         .ease(Math.sqrt)
                         .style('opacity', 0)
+                    d3.selectAll('.bar1')
+                        .transition()
+                        .delay(120)
+                        .ease(Math.sqrt)
+                        .attr('height', '5px')
+                        .attr('y', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerHeight + 15; })
+                        .style('fill', 'red')
+                       
                         
                     // d3.select('text')
                     //     .style('fill', 'black');
