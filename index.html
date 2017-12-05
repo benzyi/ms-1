@@ -139,11 +139,11 @@
                 position: fixed;
                 width: 100%;
                 bottom: 0;
-                min-height: 50px;
+                min-height: 15px;
                 box-shadow: 0px 0px 5px white;
                 vertical-align: bottom;
                 background-color: #19486a;
-                padding: 25px;
+                padding: 5px;
             }
             
             a:link {
@@ -198,7 +198,7 @@
                 padding: 7px;
                 background: #00689d;
                 color: snow;
-                border-radius: 5px;
+                border-radius: 0px;
                 width: 250px;
             }
             
@@ -346,7 +346,18 @@
                 .attr('transform', function(d, i) {
                     return 'translate(' + (40 + y(i)) + ', ' + 0 + ')';
                 })
-
+            
+            // d3.select(this).append('text') //scaler
+            //     .attr('class', 'scalertop')
+            //     .attr('x', 10)
+            //     .attr('y', window.innerHeight / 8)
+            //     .text('G')
+                
+            // group.append('text') //scaler
+            //     .attr('class', 'scalerbtm')
+            //     .attr('x', 10)
+            //     .attr('y', window.innerHeight / 1.25)
+            //     .text('Gini = 1')
                 
             group.append('rect') //Static Max Bar
                 .attr('class', 'hundred')
@@ -526,7 +537,14 @@
         </div>
     <!--</div>-->
 
-            <center><h1>Understanding South Africa's Income Inequality</h1></center>
+            <center><h1>Understanding South Africa's Income Inequality</h1>
+            <p>
+                <agri> &nbspAgricultural&nbsp  </agri> &nbsp
+                <poli> &nbspPolitical&nbsp  </poli> &nbsp
+                <econ>&nbsp Economics?&nbsp  </econ> &nbsp
+                <edu> &nbspEducational&nbsp  </edu> &nbsp
+                <pop>&nbsp Population &nbsp </pop> &nbsp
+            </p></center>
             
             <div class='row'>
     <div class='col-xl-4'>
@@ -574,8 +592,8 @@
             <div class='row'>
                     <div class ='col-md-3'><center><a href=www.wikipedia.com>Political History Source</a></center></div>
                     <div class ='col-md-3'><center><a href=http://www.africa.undp.org/content/rba/en/home/library/reports/income-inequality-trends-in-sub-saharan-africa--divergence--dete.html>UNDP Report</a></center></div>
+                    <div class ='col-md-3'><center><a href=https://docs.google.com/spreadsheets/d/1n8nvdnSnx_gdHJEzeFC-e5WDz44HBGeo4tXkpRF3dfU/edit?usp=sharing>Data Source</a></center></div>
                     <div class ='col-md-3'><center><a href=https://github.com/benzyi/ms-1/blob/master/README.md>ReadMe</a></center></div>
-                    <div class ='col-md-3'><center><a href=https://www.newschool.edu/parsons/ms-data-visualization/>Major Studio 1, Fall 2017</a></center></div>
                 </div>
 </footer>
 </div>
