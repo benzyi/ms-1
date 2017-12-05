@@ -21,4 +21,7 @@ Wikipedia, The Free Encyclopedia.
 
 ### Javascript Libraries
 [d3](https://d3js.org/)
+
 [d3-tip](https://github.com/Caged/d3-tip)
+
+[bootstrap](https://getbootstrap.com/)

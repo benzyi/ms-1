@@ -4,6 +4,7 @@
 <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="d3-tip.js"></script>
+        <link rel='stylesheet' href='bootstrap.min.css'>
 <style>
             body {
                 background-color: snow;
@@ -24,35 +25,115 @@
                 vertical-align: top;
                 z-index: 1;
                 margin: auto;
-                background-color: powderblue;
+                background-color: #0a97d9;
                 padding: 25px;
             }
             
-            p1 {
-                font-size: medium;
-                position: relative;
-            }
-            
-            /*h1 {*/
-            /*    position: fixed;*/
-            /*    padding: 20px;*/
+            /*p1 {*/
+            /*    font-size: medium;*/
+            /*    position: relative;*/
             /*}*/
             
-            div {
-                /*background-color: pink;*/
-                /*border: 1px dashed white;*/
-                border-top: 1px black;
-                min-height: 2em;
+            h1 {
+                /*position: fixed;*/
+                padding: 20px;
+                font-weight: bolder;
+                font-size: 20px;
             }
             
-            div:hover {
+            /*div {*/
+                /*background-color: pink;*/
+                /*border: 1px dashed white;*/
+            /*    border-top: 1px black;*/
+            /*    min-height: 2em;*/
+            /*}*/
+            
+            /*div:hover {*/
                 /*border-top: 2px solid black;*/
-            }
+            /*}*/
             
             /*div > div > div:hover {*/
             /*    background-color: snow;*/
                 /*font-weight: bolder;*/
             /*}*/
+            .row {
+                padding: 25px;
+            }
+            
+            .col-xl-4:hover {
+                color: #00689d;
+            }
+            
+            .col-xl-6:hover {
+                color: #00689d;
+            }
+            
+            
+           
+            
+            poli {
+                background-color: #fcc30b;
+                color: black;
+                opacity: 0.75;
+            }
+            
+            agri {
+                background-color: #dda63a;
+                color: black;
+                opacity: 0.75;
+            }
+            
+            edu {
+                background-color: #fd6925;
+                color: white;
+                opacity: 0.75;
+            }
+            
+            econ {
+                background-color: #0a97d9;
+                color: white;
+                opacity: 0.75;
+            }
+            
+            pop {
+                background-color: #4c9f38;
+                color: white;
+                opacity: 0.75;
+            }
+            
+             pop:hover {
+                background-color: #fcc30b;
+                color: black;
+                opacity: 1;
+                font-weight: bolder;
+            }
+            
+             econ:hover {
+                background-color: #fcc30b;
+                color: black;
+                opacity: 1;
+                font-weight: bolder;
+            }
+            
+             edu:hover {
+                background-color: #fcc30b;
+                color: black;
+                opacity: 1;
+                font-weight: bolder;
+            }
+             agri:hover {
+                background-color: #fcc30b;
+                color: black;
+                opacity: 1;
+                font-weight: bolder;
+            }
+            
+             poli:hover {
+                background-color: #fcc30b;
+                color: black;
+                opacity: 1;
+                font-weight: bolder;
+            }
             
             footer {
                 position: fixed;
@@ -61,14 +142,23 @@
                 min-height: 50px;
                 box-shadow: 0px 0px 5px white;
                 vertical-align: bottom;
-                background-color: snow;
+                background-color: #19486a;
+                padding: 25px;
             }
             
-            footer div {
-                border: 0px;
-                padding: 1px;
-                font-size: small;
+            a:link {
+                color: snow;
             }
+            
+            a:visited {
+                color: LightGray;
+            }
+            
+            /*footer div {*/
+            /*    border: 0px;*/
+            /*    padding: 1px;*/
+            /*    font-size: small;*/
+            /*}*/
             
             svg {
                 background-color: snow;
@@ -92,39 +182,65 @@
             }
             
             .years {
-                font-size: 30px;
+                font-size: 16px;
+                font-weight: bolder;
+            }
+            
+            .yearsLow {
+                font-size: 16px;
                 font-weight: bolder;
             }
             
             .d3-tip {
-                font-size: 12px;
-                line-height: 1;
+                font-size: 14px;
+                line-height: 1.25;
+                text-align: left;
                 padding: 7px;
-                background: black;
+                background: #00689d;
                 color: snow;
                 border-radius: 5px;
-                width: 200px;
+                width: 250px;
             }
             
             .wrapper {
                 display: grid;
                 grid-template-columns: repeat(12, lfr);
-                grid-template-rows: 125px 100px 40px;
+                grid-auto-rows: 125px;
+                height: 875px;
+            }
+            
+            .parsewrapper {
+                display: grid;
+                grid-template-columns: repeat(12, lfr);
+                grid-auto-rows: 125px;
             }
             
             .header {
                 grid-column: span 4;
-                padding: 25px;
-                background: powderblue;
+                padding: 15px;
+                line-height: 25px;
+                background: #19486a;
                 color: snow;
+                vertical-align: middle;
             }
             
             .menu {
                 grid-column: span 8;
                 padding: 25px;
-                background: powderblue;
+                background: #00689d;
                 color: snow;
+                height: 15em;
+                vertical-align: middle;
 
+            }
+            
+            .parse {
+                grid-column: span 12;
+            }
+            
+            .scaler {
+                grid-column: span 1;
+                background: #00689d;
             }
             
             .graph {
@@ -132,12 +248,23 @@
                 padding-top: 25px;
             }
             
+            
             .footer {
-                grid-column: span 12;
+                grid-column: span 1;
+                background-color: powderblue;
             }
             
             .country {
                 font-weight: bolder;
+            }
+            
+            .scale {
+                font-weight: bolder;
+                color: black;
+            }
+            
+            .circletime {
+                z-index: 5;
             }
           
         </style>
@@ -151,7 +278,7 @@
                 </h1>
             </div>
             <div class = 'menu'>This is a selection of countries with a Gini coefficient of 70 or above as recorded by the United Nation Development Programme. All countries happen to be African countries, with South Africa being the most recent to join the ranks of the highest
-            income inequality in the world. All of these nations have had a significant series of political turmoil around the time of their entering this Club. It is unclear what significant events led up to South Africa's debut.
+            income inequality in the world. All of these nations have had a significant series of political and social turbulence around the time of their entering this Club. It is unclear what significant events led up to South Africa's debut in this group.
             </div>
     
             <div class = 'graph'>
@@ -160,7 +287,7 @@
         var graph = d3.select('#target')
             .append('svg')
             .attr('width', window.innerWidth)
-            .attr('height', window.innerHeight);
+            .attr('height', window.innerHeight / 1.5);
 
         d3.json('./gini.json', function(error, data) {
             if (error) throw error;
@@ -182,7 +309,7 @@
                 .range([0, window.innerWidth]);
 
             var y = d3.scaleLinear()
-                .domain([0, 40])
+                .domain([0, 50])
                 .range([0, window.innerHeight]);
                 
             //tooltip starts here
@@ -190,9 +317,7 @@
             var tip = d3.tip()
                 .attr('class', 'd3-tip')
                 .offset([-10, 0])
-                .html(function(d) {
-                    return d.Description;
-                });
+                .html(function(d) { return d.Description; });
     
             var svg = d3.select("body").append("svg")
                 .attr('visibility', 'hidden');
@@ -220,56 +345,54 @@
                 })
                 .attr('transform', function(d, i) {
                     return 'translate(' + (40 + y(i)) + ', ' + 0 + ')';
-                });
-
-            group.append('rect')
-                .attr('class', 'bar')
-                .attr('y', function(d, i) { return window.innerHeight / 8 })
-                .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth  + 30; })
-                .attr('width', function(d, i) { return '5px'; })
-                .attr('height', function(d, i) { return y(d.Gini) / 4; })
-                .style('fill', 'red')
-                .style('opacity', '1')
-                
-                .on('mouseover', function(){
-                    d3.select(this)
-                    .style('fill', 'powderblue')
-                    .attr('width', '8px')
                 })
-                .on('mouseout', function(){
-                    d3.select(this)
-                    .transition()
-                    .delay(500)
-                    .ease(Math.sqrt)
-                    .attr('width', '5px')
-                    .style('fill', 'red')
-                })
-                
 
-            group.append('rect')
+                
+            group.append('rect') //Static Max Bar
                 .attr('class', 'hundred')
                 .attr('y', function(d, i) { return window.innerHeight / 8; })
                 .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 30; })
                 .attr('width', '5px')
                 .attr('height', function(d,i) { return y(d.max) / 4; } )
                 .style('fill', 'lightgray')
-                .style('opacity', '0.25');
-
-            group.append('rect') //country and year
+                .style('opacity', '0.5');
+                
+            group.append('rect') //Gini Bar
+                .attr('class', 'bar')
+                .attr('y', function(d, i) { return window.innerHeight / 8 })
+                .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth  + 30; })
+                .attr('width', function(d, i) { return '5px'; })
+                .attr('height', function(d, i) { return y(d.Gini) / 4; })
+                .style('fill', '#e5243b')
+                
+                //IF BAR NEEDS INDEPENDENT HOVER, REACTIVATE
+                // .on('mouseover', function(){ 
+                //     d3.select(this)
+                //     .attr('width', '8px')
+                // })
+                // .on('mouseout', function(){
+                //     d3.select(this)
+                //     .transition()
+                //     .delay(500)
+                //     .ease(Math.sqrt)
+                //     .attr('width', '5px')
+                //     .style('fill', '#3f7e44')
+                // })
+            
+            group.append('rect') //some sort of setting... necessary
                 .attr('class', function(d, i) { return "test" }) //so whenever the actual gini coefficient is called, it will refer to here.
                 .attr('data-arr', function(d, i) { return d.Gini })
-                // .attr('class', 'test')
                 .attr('y', function(d, i) { return y(d.Gini) - (window.innerHeight * 0.3); })
                 .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth; })
-            
-            group.append('text') //years static
+    
+            group.append('text') //years static RED
                 .attr('class', 'years')
                 // .attr('y', window.innerHeight / 1.3 )
                 // .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth;})
-                .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 43) + ', ' + (window.innerHeight / 1.2) + ')rotate(-90)'; })
+                .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 38) + ', ' + (window.innerHeight / 1.5) + ')rotate(-90)'; })
                 .text(function(d,i) { return d.Year })
-                .style('fill', 'black')
-                
+                .style('fill', '#19486a')
+            
             group.append('rect') //desc
                 .attr('class', function(d, i) { return "test" }) //so whenever the actual gini coefficient is called, it will refer to here.
                 .attr('data-arr2', function(d, i) { return d.Description })
@@ -283,23 +406,18 @@
                 .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 37) + ', ' + (window.innerHeight / 9) + ')rotate(-90)'; })
                 .text(function(d,i) { return d.Country;})
                 .style('opacity', 1)
+                .style('fill', '#19486a');
                 
-            // group.append('rect') //scale
-            //     .attr('x', '10')
-            //     .attr('y', 'window.innerHeight / 8')
-            //     .attr('width', '5px')
-            //     .attr('height', '1px')
-            //     .style('fill', 'black')
-
+                
             group.append('circle')
                 .attr('r', 10)
                 .attr('cx', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 32.5; })
-                .attr('cy', function(d, i) { return y(d.Gini) / 3.15; })
-                .style('fill', 'red')
+                .attr('cy', function(d, i) { return y(d.Gini) / 2.99; })
+                .style('fill', '#e5243b')
                 .attr('class', 'circletime')
                 // .attr('width', function(d, i) { return '5px';});
                 //tooltip start
-                .on('click', tip.show)
+                .on('mouseenter', tip.show)
                 .on('mouseleave', tip.hide)
                 //tooltip end
                 .on('mouseover', function() {
@@ -321,10 +439,10 @@
                                 .attr('class', 'mv_test')
                                 // .attr('y', (window.innerHeight / 6.25))
                                 // .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 23; })
-                                .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 40) + ', ' + (y(d.Gini) / 2.8) + ')rotate(-90)'; })
+                                .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 40) + ', ' + (y(d.Gini) / 2.6) + ')rotate(-90)'; })
                                 .text(d.Gini)
                                 .style('opacity', 1)
-                                .style('fill', 'red')
+                                .style('fill', '#e5243b')
                                 
                             _g.append('rect') //higlighted bar on hover
                                 .attr('class', 'bar1')
@@ -333,8 +451,8 @@
                                 .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 29; })
                                 .attr('width', function(d, i) { return '8px'; })
                                 //can also just specify the px, but to make it more responsive, just put the first x.
-                                .attr('height', function(d, i) { return y(d.Gini) / 4; })
-                                .style('fill', 'red')
+                                .attr('height', function(d, i) { return (y(d.Gini) / 4) - 8; })
+                                .style('fill', '#e5243b')
 
                                 };
                             })
@@ -354,7 +472,7 @@
 
 
                     d3.select(this)
-                        .style('fill', 'red')
+                        .style('fill', '#e5243b')
                         .style('r', "15")
                 })
 
@@ -372,7 +490,7 @@
                     d3.select(this)
                         .transition()
                         .delay(100)
-                        .style('fill', 'red')
+                        .style('fill', '#e5243b')
                         .style('r', "10")
                     d3.selectAll('.test1')
                         .transition()
@@ -389,7 +507,7 @@
                         .ease(Math.sqrt)
                         .attr('width', '5px')
                         .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 30; })
-                        .style('fill', 'red')
+                        .style('fill', '#e5243b')
                        
                         
                     // d3.select('text')
@@ -404,70 +522,63 @@
         };
     </script>
             </div>
-            </div>
-        <!--</div>-->
+            
+        </div>
     <!--</div>-->
-    
-    
 
-        
-      
-<!--            <br>-->
-<!--            <center><b>Understanding South Africa's Income Inequality</b></center>-->
-<!--            <div class='row'>-->
-<!--                <div class='col-xl-6'> <p>Third, the intensity of multidimensional poverty tends to drive conflicts; yet contrary to expectation, the relationship between conflicts and inequality is negative. For instance, most countries with a poverty headcount of over 60 per cent are also-->
-<!--        experiencing intense conflicts (e.g. Burundi, Central African Republic and Democratic Republic of the Congo), while countries with the highest level of inequality (e.g. Botswana, South Africa and Namibia) are categorized as non-conflict-prone-->
-<!--        countries. This finding recalls the words of the famous British political scientist, Harold Laski, who wrote <mark>"A State divided into a small number of rich and a large number of poor will always develop a government manipulated by the rich to protect-->
-<!--        the amenities represented by their property."</mark>(Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 6)</p></div>-->
+            <center><h1>Understanding South Africa's Income Inequality</h1></center>
+            
+            <div class='row'>
+    <div class='col-xl-4'>
+        <p>However, it has a positive relationship with inequality and explains about 13.0 per cent of the variation in income inequality. For instance, four of the seven countries with a <econ>total factor productivity index</econ> of greater than 0.40
+            (Seychelles, South Africa, Botswana and Namibia) had a Gini coefficient of more than 0.55. (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 11)</p>
+    </div>
+
+    <div class='col-xl-4'>
+        <p>However, most countries classified as advanced in demographic transition in SSA (e.g. Botswana, South Africa, Namibia and Seychelles) have Ginis of more than 0.6, while only Cabo Verde and Mauritius recorded Ginis equivalent to those of high-fertility
+            countries. The <pop>correlation between poverty rate and population variables is positive.</pop> (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 34)</p>
+    </div>
+    <div class='col-xl-4'>
+        <p>Indeed, inequality rose in 12 countries (40.0 per cent of the countries with data), including large ones such as South Africa, Ghana and Nigeria, and dropped in 17, accounting for 60 per cent of the total. <pop>These proportions are inverted when weighing for population size</pop>. (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 43)</p>
+    </div>
+            </div>
+
+            <div class='row'>
+    <div class='col-xl-4'>
+        <p>For instance, in South Africa, between 1965 and 2011, market Gini rose by 17.6 per cent while net Gini rose by 14.9 per cent. <poli>The dismantling of apartheid, the expansive social protection coverage, innovative revenue management made this possible.</poli> (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 185)</p>
+    </div>
+    <div class='col-xl-4'>
+        <p>In Botswana, South Africa, Zimbabwe and Ghana, <edu>average number of years of education rose from 5.4 to 7.7</edu> over the 1990-2009 period, and in six countries of East Africa, from 4.5 to 6.2. (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 66)</p>
+    </div>
+<div class='col-xl-4'>
+        <p>This also calls for improving progressive taxation in countries with high fiscal space and high income inequality, such as Lesotho, Namibia, South Africa, Angola and Zimbabwe. The coefficient of determination, which is 13.3 per cent, is relatively high, while correlation coefficients for both gross and net Gini measures are over 0.36. To this end, <poli>a progressive tax system and diversification of government revenues away from the extractive sector</poli> could help to reduce inequality in the continent. (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 190)</p></div>
+            </div>
+    
+    
+        <div class='row'>
+                <div class='col-xl-6'> <p>Third, the intensity of multidimensional poverty tends to drive conflicts; yet contrary to expectation, the relationship between conflicts and inequality is negative. For instance, most countries with a poverty headcount of over 60 per cent are also
+        experiencing intense conflicts (e.g. Burundi, Central African Republic and Democratic Republic of the Congo), while countries with the highest level of inequality (e.g. Botswana, South Africa and Namibia) are categorized as non-conflict-prone
+        countries. This finding recalls the words of the famous British political scientist, Harold Laski, who wrote <poli>"A State divided into a small number of rich and a large number of poor will always develop a government manipulated by the rich to protect
+        the amenities represented by their property."</poli>(Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 6)</p></div>
           
-<!--        <div class='col-xl-6'>-->
-<!--        <p>He posits that <mark>agriculture plays a multidimensional role in the development process,</mark> which includes eliciting economic growth, providing foreign exchange earnings, generating employment opportunities, ensuring food security, contributing to value-->
-<!--        chains, reducing poverty, lowering income disparities and delivering environmental services, among others. Its neglect has hindered agriculture from performing these roles. For instance, in Africa, rural poverty affects more than 60 per cent of-->
-<!--        the population in 17 countries and between 50.0 and 60.0 per cent in 14 countries. It is particularly alarming in Zimbabwe and Madagascar, where it affects over 80 per cent. Yet, agriculture accounts for 66.0 per cent of total employment in SSA-->
-<!--        (excluding South Africa). (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 31)</p>-->
-<!--        </div>-->
-<!--            </div>-->
-<!--            <div class='row'>-->
-<!--    <div class='col-xl-6'>-->
-<!--        <p>However, it has a positive relationship with inequality and explains about 13.0 per cent of the variation in income inequality. For instance, four of the seven countries with a <mark>total factor productivity index</mark> of greater than 0.40-->
-<!--            (Seychelles, South Africa, Botswana and Namibia) had a Gini coefficient of more than 0.55. (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 11)</p>-->
-<!--    </div>-->
-
-<!--    <div class='col-xl-6'>-->
-<!--        <p>However, most countries classified as advanced in demographic transition in SSA (e.g. Botswana, South Africa, Namibia and Seychelles) have Ginis of more than 0.6, while only Cabo Verde and Mauritius recorded Ginis equivalent to those of high-fertility-->
-<!--            countries. The <mark>correlation between poverty rate and population variables is positive.</mark> (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 34)</p>-->
-<!--    </div>-->
-<!--            </div>-->
-<!--            <div class='row'>-->
-<!--    <div class='col-xl-6'>-->
-<!--        <p>Indeed, inequality rose in 12 countries (40.0 per cent of the countries with data), including large ones such as South Africa, Ghana and Nigeria, and dropped in 17, accounting for 60 per cent of the total. <mark>These proportions are inverted when weighing for population size</mark>. (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 43)</p>-->
-<!--    </div>-->
-<!--<div class='col-xl-6'>-->
-<!--        <p>This also calls for improving progressive taxation in countries with high fiscal space and high income inequality, such as Lesotho, Namibia, South Africa, Angola and Zimbabwe. The coefficient of determination, which is 13.3 per cent, is relatively high, while correlation coefficients for both gross and net Gini measures are over 0.36. To this end, <mark>a progressive tax system and diversification of government revenues away from the extractive sector</mark> could help to reduce inequality in the continent. (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 190)</p></div>-->
-<!--            </div>-->
-    
-           
-<!--<div class='row'>-->
-<!--    <div class='col-xl-6'>-->
-<!--        <p>For instance, in South Africa, between 1965 and 2011, market Gini rose by 17.6 per cent while net Gini rose by 14.9 per cent. <mark>The dismantling of apartheid, the expansive social protection coverage, innovative revenue management made this possible.</mark> (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 185)</p>-->
-<!--    </div>-->
-<!--<div class='col-xl-6'>-->
-<!--        <p>In Botswana, South Africa, Zimbabwe and Ghana, <mark>average number of years of education rose from 5.4 to 7.7</mark> over the 1990-2009 period, and in six countries of East Africa, from 4.5 to 6.2. (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 66)</p>-->
-<!--    </div>-->
-    
-
-                </div>
+        <div class='col-xl-6'>
+        <p>He posits that <agri>agriculture plays a multidimensional role in the development process,</agri> which includes eliciting economic growth, providing foreign exchange earnings, generating employment opportunities, ensuring food security, contributing to value
+        chains, reducing poverty, lowering income disparities and delivering environmental services, among others. Its neglect has hindered agriculture from performing these roles. For instance, in Africa, rural poverty affects more than 60 per cent of
+        the population in 17 countries and between 50.0 and 60.0 per cent in 14 countries. It is particularly alarming in Zimbabwe and Madagascar, where it affects over 80 per cent. Yet, agriculture accounts for 66.0 per cent of total employment in SSA
+        (excluding South Africa). (Odusola et al., <i>Income Inequality Trends in sub-Saharan Africa</i>, 31)</p>
+        </div>
+            </div>
             </div>
 
 <footer>
-            <div class='footer'>
-                    <center><a href=www.wikipedia.com>Political History Source</a></center>
-                    <center><a href=http://www.africa.undp.org/content/rba/en/home/library/reports/income-inequality-trends-in-sub-saharan-africa--divergence--dete.html>UNDP Report</a></center>
-                    <center><a href=https://github.com/benzyi/ms-1/blob/master/exercises/UNDPwiid/ReadMe.md>ReadMe</a></center>
-                    <center><a href=https://www.newschool.edu/parsons/ms-data-visualization/>Major Studio 1, Fall 2017</a></center>
+            <div class='row'>
+                    <div class ='col-md-3'><center><a href=www.wikipedia.com>Political History Source</a></center></div>
+                    <div class ='col-md-3'><center><a href=http://www.africa.undp.org/content/rba/en/home/library/reports/income-inequality-trends-in-sub-saharan-africa--divergence--dete.html>UNDP Report</a></center></div>
+                    <div class ='col-md-3'><center><a href=https://github.com/benzyi/ms-1/blob/master/README.md>ReadMe</a></center></div>
+                    <div class ='col-md-3'><center><a href=https://www.newschool.edu/parsons/ms-data-visualization/>Major Studio 1, Fall 2017</a></center></div>
                 </div>
 </footer>
-
+</div>
     </body>
 
 </html>
