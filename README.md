@@ -2,7 +2,7 @@
 
 ### This visualization observes countries that had a Gini coefficient of 70 or above at any period of time. Eight countries are in this very exclusive club of having been recorded with the highest income inequality in the world, and all eight happen to be African countries.
 
-[![preview.png](https://benzyi.github.io/ms-1/preview.png)](https://benzyi.github.io/ms-1/)
+[![preview.png](https://benzyi.github.io/ms-1/preview.PNG)](https://benzyi.github.io/ms-1/)
 
 ### Abstract
 The years demarcated have a very strong political history in the years leading to their highest level of inequality, and all have also seen their most equal times in the years ahead except one country. South Africa had seen their most equal time in the years leading to the end of the apartheid, while being the only country to have gotten more unequal since their lowest Gini score. It is a bit mysterious as to what impactful events happened in the years leading to 2011, but looking at the UNDP Report as well as further research might help to shape an explanation that might also help find a solution to this high level of inequality.
