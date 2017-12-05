@@ -11,8 +11,9 @@
             }
             .container {
                 /*width: 100vw !important;    */
-                z-index: 0;
+                /*z-index: 0;*/
                 padding-bottom: 50px;
+                position: fixed;
             }
             /*important overrides everything*/
             
@@ -88,7 +89,7 @@
                 background-color: powderblue;
                 position: relative;
                 padding: 25px;
-                padding-top: 35px;
+                /*padding-top: 35px;*/
                 
             }
             
@@ -115,13 +116,18 @@
             }
             
             .col-xl-10 {
-                padding-bottom: 25px;
+                padding-bottom: 100px;
+                padding-top: 100px;
+            }
+            
+            .col-sm-4 {
+                padding: 25px;
+                padding-left: 25px;
             }
             
             .content {
                 background-color: snow;
-                padding-top: 200px;
-                padding-top: 100px;
+
             }
             
             .mv_test {
@@ -157,22 +163,23 @@
 
 <body>
     
-    <header>
-    <!--<div class='container'>-->
-        <h1>The Most Unequal Times</h1>
-            <!--    <div class = 'col-lg-8'><p1>This is a selection of countries with a Gini coefficient of 70 or above as recorded by the United Nation Development Programme. All countries happen to be African countries, with South Africa being the most recent to join the ranks of the highest-->
-            <!--    income inequality in the world. All of these nations have had a significant series of political turmoil around the time of their entering this Club. It is unclear what significant events led up to South Africa's debut.</p1></div>-->
-            
-    <!--</div>-->
+    <div class = 'content'>
+        <div class='row'>
+            <div class = 'col-sm-4'><h1><center>The Most Unequal Times</center></h1>
+            </div>
+            <div class = 'col-lg-8'>This is a selection of countries with a Gini coefficient of 70 or above as recorded by the United Nation Development Programme. All countries happen to be African countries, with South Africa being the most recent to join the ranks of the highest
+            income inequality in the world. All of these nations have had a significant series of political turmoil around the time of their entering this Club. It is unclear what significant events led up to South Africa's debut.
+            </div>
+        </div>
+    </div>
     
-    </header>
     
     <!--<div class='container'>-->
         <div class ='content'>
             <div class ='row'>
-            <div class = 'col-sm-2'><br><br>This is a selection of countries with a Gini coefficient of 70 or above as recorded by the United Nation Development Programme. All countries happen to be African countries, with South Africa being the most recent to join the ranks of the highest
-                income inequality in the world. All of these nations have had a significant series of political turmoil around the time of their entering this Club. It is unclear what significant events led up to South Africa's debut.
-            </div>
+            <!--<div class = 'col-sm-2'><br><br>This is a selection of countries with a Gini coefficient of 70 or above as recorded by the United Nation Development Programme. All countries happen to be African countries, with South Africa being the most recent to join the ranks of the highest-->
+            <!--    income inequality in the world. All of these nations have had a significant series of political turmoil around the time of their entering this Club. It is unclear what significant events led up to South Africa's debut.-->
+            <!--</div>-->
             <div class = 'col-xl-10'>
                 <div id='target'></div>
                 <script>
@@ -426,13 +433,13 @@
     </script>
             </div>
             </div>
-        </div>
+        <!--</div>-->
     <!--</div>-->
     
     
 
         
-        <div class='container'>
+        <!--<div class='container'>-->
             <br>
             <center><b>Understanding South Africa's Income Inequality</b></center>
             <div class='row'>
