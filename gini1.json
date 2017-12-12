@@ -19,6 +19,13 @@
     "max": 100
   },
   {
+    "CountryLow": "South Africa",
+    "YearLow": 1987,
+    "GiniLow": 45,
+    "DescriptionLow": "2007: Zuma on indictment to stand trial in the High Court on various counts of racketeering, money laundering, corruption and fraud. Also accused of rape, to which he says was consensual, while the victim denies it was. Zuma was sworn in as President of South Africa on 9 May 2009.",
+    "maxLow": 100
+  },
+  {
     "Country": "Zambia",
     "Year": 1991,
     "Gini": 77.3,
@@ -62,6 +69,13 @@
 
   },
   {
+    "CountryLow": "Kenya",
+    "YearLow": 1994,
+    "GiniLow": 44.5,
+    "DescriptionLow": "The plantations formerly owned by white settlers were broken up and given to farmers, with the Kikuyu, the favoured recipients, along with their allies the Embu and the Meru.",
+    "maxLow": 100
+  },
+  {
     "Country": "Zimbabwe",
     "Year": 1995,
     "Gini": 70.3,
@@ -72,13 +86,56 @@
     "max": 100
   },
   {
+    "CountryLow": "Zambia",
+    "YearLow": 2002,
+    "GiniLow": 42.06,
+    "DescriptionLow": "The first multi-party elections since 1968, and only the second multi-party elections since independence in 1964.",
+    "maxLow": 100
+  },
+  {
+    "CountryLow": "Tanzania",
+    "YearLow": 2007,
+    "GiniLow": 33,
+    "DescriptionLow": "After recently holding a one-party election, they lifted their ban on other political parties in 1992.",
+    "maxLow": 100
+
+  },
+  {
+    "CountryLow": "Mali",
+    "YearLow": 2009,
+    "GiniLow": 33.04,
+    "DescriptionLow": "They were in the midst of a civil war that lasted from 1990-1995.",
+    "maxLow": 100
+
+  },
+  {
+    "CountryLow": "Namibia",
+    "YearLow": 2010,
+    "GiniLow": 59.7,
+    "DescriptionLow": "After over 100 years of German and South African control, they gained independence in 1990.",
+    "maxLow": 100
+
+  },
+  {
     "Country": "South Africa",
     "Year": 2011,
     "Gini": 77.1,
-    "YearLow": 1987,
-    "GiniLow": 45,
     "id": 9,
     "Description": "2007: Zuma on indictment to stand trial in the High Court on various counts of racketeering, money laundering, corruption and fraud. Also accused of rape, to which he says was consensual, while the victim denies it was. Zuma was sworn in as President of South Africa on 9 May 2009.",
     "max": 100
+  },
+  {
+    "CountryLow": "Zimbabwe",
+    "YearLow": 2011,
+    "GiniLow": 42.3,
+    "DescriptionLow": "Coming out of a 25-year state of emergency and recently becoming a republic, in 1995, held parliamentary elections where the ZANU-PF won unopposed for nearly half the seats.",
+    "maxLow": 100
+  },
+  {
+    "CountryLow": "Mauritania",
+    "YearLow": 2014,
+    "GiniLow": 32.42,
+    "DescriptionLow": "In October 1987, the government allegedly uncovered a tentative coup d'État by a group of black army officers, backed, according to the authorities, by Senegal. Fifty one officers were arrested and tortured.",
+    "maxLow": 100
   }
 ]
