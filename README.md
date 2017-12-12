@@ -17,11 +17,23 @@ Odusola, Ayodele, Giovanni Cornia, Haroon Bhorat, and Pedro Conceição, eds. *I
 
 Gradín, Carlos. *World Income Inequality Database*. Database. United Nations University World Institute for Development, Economics Research.  Helsinki, Finland: United Nations University, January 2017.
 
+United Nations Statistics Division, *UN Data: A World of Information*, 2017.
+
 Wikipedia, The Free Encyclopedia.
+
+Encyclopaedia Britannica, 2017.
+
+*The World Factbook* 2017. Washington, DC: Central Intelligence Agency, 2017.
+
+*Freedom in the World* 2017, New York: NY: Freedom House, 2017.
 
 ### Javascript Libraries
 [d3](https://d3js.org/)
 
 [d3-tip](https://github.com/Caged/d3-tip)
 
-[bootstrap](https://getbootstrap.com/)
+[bootstrap 4](https://getbootstrap.com/)
+
+[jQuery](https://jquery.com/)
+
+[popper](https://popper.js.org/)
