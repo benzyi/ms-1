@@ -1,6 +1,6 @@
 # The Curious Case of South Africa's Income Inequality
 
-### This visualization investigates South Africa's high income inequality with three visualizations to help decipher its curious case of recently having recorded one of the highest income inequality in the world.
+### This visualization investigates South Africa's high income inequality with three angles to help decipher its curious case of recently having recorded one of the highest income inequality in the world.
 
 [![preview.png](https://benzyi.github.io/ms-1/preview.PNG)](https://benzyi.github.io/ms-1/)
 
