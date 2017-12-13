@@ -9,7 +9,7 @@ Most of the Sub-saharan African countries have a very different economic composi
 
 This is an investigative visualization using qualitative data for a closer read into the UNDP report, while trying to redirect the qualitative analysis to start a conversation on recommendations for South Africa. It seems that with a drive away from agriculture and towards services (which seems inevitable with higher education rates), inequality rises exponentially, so a close read into South Africa's economy may help prevent high inequality in the development of other SSA countries.
 
-###Methodology
+### Methodology
 The political information was subjectively extracted from three sources (Wikipedia, Britannica, and Freedom House) that provided non-partisan general information about that year and country. I chose information that I thought was the most significant political event in the given time period.
 
 The qualitiative data parsing from the report was hand-picked according to their relevance to the data points listed in the table and its utility in explaining some of the big topic issues covered throughout the report that I felt might help map South Africa's specific case.
