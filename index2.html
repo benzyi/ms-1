@@ -2,12 +2,13 @@
 <html>
 
 <head>
-   <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="d3-tip.js"></script>
     <script src="jquery.min.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
     <script src="popper.min.js"></script>
-      <script src="bootstrap.min.js"></script><style>
+      <script src="bootstrap.min.js"></script>
+    <style>
             body {
                 background-color: snow;
                 font-family: "Open Sans", sans-serif;
@@ -15,15 +16,15 @@
             .container {
                 /*width: 100vw !important;    */
                 /*z-index: 0;*/
-                padding-bottom: 50px;
-                position: fixed;
+                /*padding-bottom: 50px;*/
+                /*position: fixed;*/
             }
             /*important overrides everything*/
             
             header {
                 position: fixed;
                 min-height: 50px;
-                width: 16%;
+                max-width: 16%;
                 vertical-align: top;
                 z-index: 1;
                 margin: auto;
@@ -38,9 +39,15 @@
             
             h1 {
                 /*position: fixed;*/
-                padding: 20px;
+                padding: 15px;
                 font-weight: bolder;
                 font-size: 20px;
+            }
+            
+            h2 {
+                font-size: 16px;
+                font-style: italic;
+                padding-top: 15px;
             }
             
             /*div {*/
@@ -62,13 +69,18 @@
                 padding: 25px;
             }
             
-            .col-xl-4:hover {
-                color: #00689d;
+            /*.col-xl-4:hover {*/
+            /*    color: #00689d;*/
+            /*}*/
+            
+            /*.col-xl-6:hover {*/
+            /*    color: #00689d;*/
+            /*}*/
+            
+            th.row {
+                max-width: 400px !important;
             }
             
-            .col-xl-6:hover {
-                color: #00689d;
-            }
             .table {
                  text-align: center;   
                  vertical-align: middle;
@@ -81,7 +93,7 @@
             }
             
             .tooltip-inner {
-                 max-width: 350px;
+                 max-width: 400px;
                  padding: 5px 8px;
                  color: snow;
                  text-align: left;
@@ -141,6 +153,9 @@
                 opacity: 1;
             }
             
+            /*.w-25 {*/
+            /*    background-color: none;*/
+            /*}*/
             
             footer {
                 position: fixed;
@@ -150,15 +165,26 @@
                 box-shadow: 0px 0px 5px white;
                 vertical-align: bottom;
                 background-color: #19486a;
-                padding: 5px;
             }
             
             a:link {
                 color: snow;
+                text-decoration: none;
+                
             }
             
             a:visited {
                 color: LightGray;
+                text-decoration: none;
+            }
+            
+            a:active {
+                background-color:#00689d;
+                text-decoration: none;
+            }
+            
+            a:hover {
+                text-decoration: none;
             }
             
             /*footer div {*/
@@ -234,13 +260,26 @@
             }
             
             .menu {
-                grid-column: span 8;
-                padding: 25px;
+                grid-column: span 6;
+                padding: 15px;
                 background: #00689d;
                 color: snow;
                 height: 15em;
                 vertical-align: middle;
-
+            }
+            
+            .links {
+                grid-column: span 2;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 10px;
+                background: #00689d;
+                color: #fd9d24;
+                height: 15em;
+                vertical-align: middle;
+                text-align: right;
+                font-weight: bolder;
+                font-size: 20px;
             }
             
             .parse {
@@ -275,16 +314,62 @@
             .circletime {
                 z-index: 5;
             }
-          
+            
+            .button {
+                display: inline-block;
+                border-radius: 4px;
+                background-color: #0a97d9;
+                border: none;
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 16px;
+                padding: 5px;
+                width: 150px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5px;
+            }
+        
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+                
+            }
+
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+
+            .button:hover span {
+                padding-right: 25px;
+            }
+
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+
         </style>
 </head>
 
 <body>
     
     <div class = 'wrapper'>
-            <div class = 'header'><h1><center>How did South Africa become the most unequal place in the world?
+            <div class = 'header'><h1><center>The Curious Case of South Africa's Income Inequality
                 </center>
                 </h1>
+            </div>
+            <div class = 'links'>
+                <a href="https://benzyi.github.io/ms-1/"><button class="button"><span>The Top Eight</span></button></a><br>
+                <a href="https://benzyi.github.io/ms-1/index3.html"><button class="button"><span>Tanzania</span></button></a><br>
+                <a href="https://benzyi.github.io/ms-1/index2.html"><button class="button"><span>Ethiopia</span></button></a><br>
             </div>
             <div class = 'menu'><p>
                 Although Ethiopia has nearly double the population of South Africa, it has half its Gini coefficient. Like most African countries, Ethiopia's labor force is very concentrated in agricultural production and like most countries, the labor force is double the agricultural output as a percentage of GDP due to the nature of the work. Also like most countries, its services labor force is half the production output of the services sector. Curiously, South Africa's services sector has a nearly equal percentage in labor force as it does in production of the services sector which tends to be a high-inequality sector. The chart below maps the political activity over the course of Ethiopia's recorded Gini coefficients. What is interesting is the strength of the government over the people throughout these historical events.
@@ -311,7 +396,7 @@
             // max is 78.6
 
             var x = d3.scaleLinear()
-                .domain([0, 50])
+                .domain([0, 65])
                 .range([0, window.innerWidth]);
 
             var y = d3.scaleLinear()
@@ -368,7 +453,7 @@
             group.append('rect') //Static Max Bar
                 .attr('class', 'hundred')
                 .attr('y', function(d, i) { return window.innerHeight / 8; })
-                .attr('x', function(d, i) { return ((d.Year - 1966) / 50) * 0.8 * window.innerWidth + 30; })
+                .attr('x', function(d, i) { return ((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 30; })
                 .attr('width', '5px')
                 .attr('height', function(d,i) { return y(d.max) / 2.6; } )
                 .style('fill', 'lightgray')
@@ -377,7 +462,7 @@
             group.append('rect') //Gini Bar
                 .attr('class', 'bar')
                 .attr('y', function(d, i) { return window.innerHeight / 8 })
-                .attr('x', function(d, i) { return ((d.Year - 1966) / 50) * 0.8 * window.innerWidth  + 30; })
+                .attr('x', function(d, i) { return ((d.Year - 1950) / 65) * 0.8 * window.innerWidth  + 30; })
                 .attr('width', function(d, i) { return '5px'; })
                 .attr('height', function(d, i) { return y(d.Gini) / 2.99; })
                 .style('fill', '#fd9d24')
@@ -400,13 +485,13 @@
                 .attr('class', function(d, i) { return "test" }) //so whenever the actual gini coefficient is called, it will refer to here.
                 .attr('data-arr', function(d, i) { return d.Gini })
                 .attr('y', function(d, i) { return y(d.Gini) - (window.innerHeight * 0.3); })
-                .attr('x', function(d, i) { return ((d.Year - 1966) / 50) * 0.8 * window.innerWidth; })
+                .attr('x', function(d, i) { return ((d.Year - 1950) / 65) * 0.8 * window.innerWidth; })
     
             group.append('text') //years static RED
                 .attr('class', 'years')
                 // .attr('y', window.innerHeight / 1.3 )
-                // .attr('x', function(d, i) { return ((d.Year - 1966) / 50) * 0.8 * window.innerWidth;})
-                .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1966) / 50) * 0.8 * window.innerWidth + 38) + ', ' + (window.innerHeight / 1.5) + ')rotate(-90)'; })
+                // .attr('x', function(d, i) { return ((d.Year - 1950) / 65) * 0.8 * window.innerWidth;})
+                .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 38) + ', ' + (window.innerHeight / 1.5) + ')rotate(-90)'; })
                 .text(function(d,i) { return d.Year })
                 .style('fill', '#19486a')
             
@@ -414,20 +499,20 @@
                 .attr('class', function(d, i) { return "test" }) //so whenever the actual gini coefficient is called, it will refer to here.
                 .attr('data-arr2', function(d, i) { return d.Description })
                 .attr('y', function(d, i) { return y(d.Gini) - (window.innerHeight * 0.3); })
-                .attr('x', function(d, i) { return ((d.Year - 1966) / 50) * 0.8 * window.innerWidth + 40; })
+                .attr('x', function(d, i) { return ((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 40; })
                 
             group.append('text') //country static
                 .attr('class', 'country')
                 // .attr('y', (window.innerHeight / 6.25))
-                // .attr('x', function(d, i) { return ((d.Year - 1966) / 50) * 0.8 * window.innerWidth + 23; })
-                .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1966) / 50) * 0.8 * window.innerWidth + 37) + ', ' + (window.innerHeight / 9) + ')rotate(-90)'; })
+                // .attr('x', function(d, i) { return ((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 23; })
+                .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 37) + ', ' + (window.innerHeight / 9) + ')rotate(-90)'; })
                 .text(function(d,i) { return d.Country;})
                 .style('opacity', 1)
                 .style('fill', '#19486a');
             
             group.append('circle')
                 .attr('r', 10)
-                .attr('cx', function(d, i) { return ((d.Year - 1966) / 50) * 0.8 * window.innerWidth + 32.5; })
+                .attr('cx', function(d, i) { return ((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 32.5; })
                 .attr('cy', function(d, i) { return (window.innerHeight / 8) + y(d.Gini) / 2.99; })
                 .style('fill', '#fd9d24')
                 .attr('class', 'circletime')
@@ -454,8 +539,8 @@
                             _g.append('text') //gini on hover
                                 .attr('class', 'mv_test')
                                 // .attr('y', (window.innerHeight / 6.25))
-                                // .attr('x', function(d, i) { return ((d.Year - 1966) / 50) * 0.8 * window.innerWidth + 23; })
-                                .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1966) / 50) * 0.8 * window.innerWidth + 40) + ', ' + ((window.innerHeight / 8) + (y(d.Gini) / 1.85)) + ')rotate(-90)'; })
+                                // .attr('x', function(d, i) { return ((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 23; })
+                                .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 40) + ', ' + ((window.innerHeight / 8) + (y(d.Gini) / 1.85)) + ')rotate(-90)'; })
                                 .text(d.Gini)
                                 .style('opacity', 1)
                                 .style('fill', '#fd9d24')
@@ -464,7 +549,7 @@
                                 .attr('class', 'bar1')
                                 //attributing a class to call it at diff places. bar is just the name of the class
                                 .attr('y', function(d, i) { return window.innerHeight / 8; })
-                                .attr('x', function(d, i) { return ((d.Year - 1966) / 50) * 0.8 * window.innerWidth + 29; })
+                                .attr('x', function(d, i) { return ((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 29; })
                                 .attr('width', function(d, i) { return '8px'; })
                                 //can also just specify the px, but to make it more responsive, just put the first x.
                                 .attr('height', function(d, i) { return (y(d.Gini) / 2.99) - 15; })
@@ -536,22 +621,26 @@
         </div>
     <!--</div>-->
 
-                        <div class='row'>
+            <div class='row'>
     <div class='col-xl-4'>
-        
+          <center><h1>Understanding South Africa's Income Inequality</h1>
+        <p> <econ data-toggle="tooltip" data-placement="top" title="i.e Agriculture, Industry, Services">Economy</econ> &nbsp
+                <poli data-toggle="tooltip" data-placement="top" title="i.e Social Protection, Taxes, Government">Policy</poli> &nbsp
+                <edu data-toggle="tooltip" data-placement="top" title="i.e. Literacy, Primary, Secondary, Tertiary">Education</edu> &nbsp
+                <pop data-toggle="tooltip" data-placement="top" title="i.e. Fertility, Migration, Weighing">Population</pop> &nbsp
+            <br><br>Hover over highlighted text to see the fuller context. <br>Download report and refer to citations for full context.
+            </p>
+       </center>
             </div>
 
     <div class='col-xl-4'>
-        <center><h1>Understanding South Africa's Income Inequality</h1>
-        <p> <econ>Economy</econ> &nbsp
-                <poli>Political</poli> &nbsp
-                <edu>Education</edu> &nbsp
-                <pop>Population</pop> &nbsp
-            </p>
-       </center>
+      
+       <h2>Country Data</h2>
+        <p>The statistics on the left are the most recent data available from the CIA World Factbook and UNSD UN World Facts database. These particular data points were chosen because they closely relate to some of the factors of inequality mentioned throughout the report. While agriculture and education were a large part of SSA's equalizers, the story in South Africa is a bit different according to these data.</p>
     </div>
     <div class='col-xl-4'>
-        
+        <h2>Qualitative Data</h2>
+        <p>This is a manual parsing of qualitative data from the UNDP report chosen within the parameters of the four highlighted topics in relation to one of the three countries mentioned previously and to the selected country data. This is not an exhaustive list, but what personally helped me understand the nuances of the factors that are connected with inequality.</p>
     </div>
             </div>
             <table class="table">
@@ -562,13 +651,9 @@
         <th scope="col">Tanzania</th>
         <th scope="col">Ethiopia</th>
         
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th class="w-25">Collection of Qualitative Data</th>
+      <th class="w-25"></th>
+      <th class="w-25"></th>
     </tr>
   </thead>
   <tbody>
@@ -578,32 +663,32 @@
       <td>56</td>
       <td>54</td>
       <td>102</td>
-      <td><pop data-toggle="tooltip" data-placement="top" title="However, most countries classified as advanced in demographic transition in SSA (e.g. Botswana, South Africa, Namibia and Seychelles) have Ginis of more than 0.6, while only Cabo Verde and Mauritius recorded Ginis equivalent to those of high-fertility countries. The correlation between poverty rate and population variables is positive. (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 34)">correlation between poverty rate and population variables is positive.</pop></td>
-      <td><pop data-toggle="tooltip" data-placement="top" title="Indeed, inequality rose in 12 countries (40.0 per cent of the countries with data), including large ones such as South Africa, Ghana and Nigeria, and dropped in 17, accounting for 60 per cent of the total. These proportions are inverted when weighing for population size. (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 43)">These proportions are inverted when weighing for population size</pop></td>     
-        <td><pop data-toggle="tooltip" data-placement="top" title="Thus, inequality fell steadily in 13 countries... and rose steadily in seven countries. Although these countries are few, they have large populations (as in Kenya, South Africa, Ghana, Uganda and Côte d'Ivoire). Their Gini increase was on average less pronounced than the decline observed in the first group... Weighing countries’ Gini with their population size does not greatly change the four trends identified, but it alters the extent of the variations (see Chapter 16). (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 31-32)">Weighing countries' Gini with their population size does not greatly change the four trends identified</pop></td>
+      <td><pop data-toggle="tooltip" data-placement="top" title="However, most countries classified as advanced in demographic transition in SSA (e.g. Botswana, South Africa, Namibia and Seychelles) have Ginis of more than 0.6, while only Cabo Verde and Mauritius recorded Ginis equivalent to those of high-fertility countries. The correlation between poverty rate and population variables is positive. (Odusola et al., 34)">correlation between poverty rate and population variables is positive.</pop></td>
+      <td><pop data-toggle="tooltip" data-placement="top" title="Indeed, inequality rose in 12 countries (40.0 per cent of the countries with data), including large ones such as South Africa, Ghana and Nigeria, and dropped in 17, accounting for 60 per cent of the total. These proportions are inverted when weighing for population size. (Odusola et al., 43)">"These proportions are inverted when weighing for population size."</pop></td>     
+        <td><pop data-toggle="tooltip" data-placement="top" title="Thus, inequality fell steadily in 13 countries... and rose steadily in seven countries. Although these countries are few, they have large populations (as in Kenya, South Africa, Ghana, Uganda and Côte d'Ivoire). Their Gini increase was on average less pronounced than the decline observed in the first group... Weighing countries' Gini with their population size does not greatly change the four trends identified, but it alters the extent of the variations (see Chapter 16). (Odusola et al., 31-32)">"Weighing countries' Gini with their population size does not greatly change the four trends identified..."</pop></td>
     </tr>
     <tr>
       <th scope="row">GDP<br>(PPP)</th>
         <td>$739.2 billion</td>
         <td>$150.3 billion</td>
         <td>$177.4 billion</td>
-        <td><poli data-toggle="tooltip" data-placement="top" title="Many countries are deepening their direct taxation, while some are shifting from indirect to direct taxation to reduce income inequality. The reform in the tax collection system, which is blocking tax evasion by companies and individuals in South Africa, is also contributing to the enviable performance in fiscal distribution in the country. (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 167)">deepening their direct taxation, while some are shifting from indirect to direct taxation to reduce income inequality</poli></p></td>
+
     </tr>
      <tr>
       <th scope="row">GDP Composition <br>(Agriculture)</th>
         <td>2.5% </td>
         <td>24.5%</td>
         <td>37.2%</td>
-              
+
     </tr>
       <tr>
       <th scope="row">GDP Composition <br>(Industry)</th>
         <td>29%</td>
         <td>27.6%</td>
         <td>21.3%</td>
-        <td><poli data-toggle="tooltip" data-placement="top" title="This also calls for improving progressive taxation in countries with high fiscal space and high income inequality, such as Lesotho, Namibia, South Africa, Angola and Zimbabwe. The coefficient of determination, which is 13.3 per cent, is relatively high, while correlation coefficients for both gross and net Gini measures are over 0.36. To this end, <poli>a progressive tax system and diversification of government revenues away from the extractive sector</poli> could help to reduce inequality in the continent. (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 172)">a progressive tax system and diversification of government revenues away from the extractive sector could help to reduce inequality in the continent.</poli>
+        <td><poli data-toggle="tooltip" data-placement="top" title="This also calls for improving progressive taxation in countries with high fiscal space and high income inequality, such as Lesotho, Namibia, South Africa, Angola and Zimbabwe. The coefficient of determination, which is 13.3 per cent, is relatively high, while correlation coefficients for both gross and net Gini measures are over 0.36. To this end, <poli>a progressive tax system and diversification of government revenues away from the extractive sector</poli> could help to reduce inequality in the continent. (Odusola et al., 172)">"...a progressive tax system and diversification of government revenues away from the extractive sector could help to reduce inequality in the continent."</poli>
             </td>
-            <td><econ data-toggle="tooltip" data-placement="top" title="In contrast, FDIs in labour-intensive manufacturing and infrastructure (as in Ghana, Ethiopia, Mozambique and South Africa) raised the integration of domestic and world markets and favourably affected inequality via growth. (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 42)">integration of domestic and world markets and favourably affected inequality via growth</econ></td>
+            <td><econ data-toggle="tooltip" data-placement="top" title="In contrast, FDIs in labour-intensive manufacturing and infrastructure (as in Ghana, Ethiopia, Mozambique and South Africa) raised the integration of domestic and world markets and favourably affected inequality via growth. (Odusola et al., 42)">"...integration of domestic and world markets and favourably affected inequality via growth."</econ></td>
         
     </tr>
       <tr>
@@ -611,6 +696,7 @@
         <td>68.6%</td>
         <td>47.3%</td>
         <td>41.5%</td>
+        <td><econ data-toggle="tooltip" data-placement="top" title="While manufacturing and community services are twice as productive as agriculture, the productivity of capital- and skills-intensive FIRE is 72 times higher than that of agriculture. Productivity in the other sectors is 8-11 times higher, on average, than that of agriculture. (Odusola et al., 42)">"...integration of domestic and world markets and favourably affected inequality via growth."</econ></td>
         
     </tr>
     <tr>
@@ -618,29 +704,32 @@
       <td>4.6%</td>  
       <td>66.9%</td>
       <td>72.7%</td>
-      <td><econ data-toggle="tooltip" data-placement="top" title="He posits that agriculture plays a multidimensional role in the development process, which includes eliciting economic growth, providing foreign exchange earnings, generating employment opportunities, ensuring food security, contributing to value chains, reducing poverty, lowering income disparities and delivering environmental services, among others. Its neglect has hindered agriculture from performing these roles. For instance, in Africa, rural poverty affects more than 60 per cent of the population in 17 countries and between 50.0 and 60.0 per cent in 14 countries. It is particularly alarming in Zimbabwe and Madagascar, where it affects over 80 per cent. Yet, agriculture accounts for 66.0 per cent of total employment in SSA (excluding South Africa). (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 31)">agriculture accounts for 66.0 per cent of total employment in SSA (excluding South Africa)</econ></td>
+      <td><econ data-toggle="tooltip" data-placement="top" title="He posits that agriculture plays a multidimensional role in the development process, which includes eliciting economic growth, providing foreign exchange earnings, generating employment opportunities, ensuring food security, contributing to value chains, reducing poverty, lowering income disparities and delivering environmental services, among others. Its neglect has hindered agriculture from performing these roles. For instance, in Africa, rural poverty affects more than 60 per cent of the population in 17 countries and between 50.0 and 60.0 per cent in 14 countries. It is particularly alarming in Zimbabwe and Madagascar, where it affects over 80 per cent. Yet, agriculture accounts for 66.0 per cent of total employment in SSA (excluding South Africa). (Odusola et al., 31)">"...agriculture accounts for 66.0 per cent of total employment in SSA (excluding South Africa)."</econ></td>
       <td><econ data-toggle="tooltip" data-placement="top" title="At the bivariate level, agricultural productivity per worker tends to push labour out of the sector. Enhanced productivity in the agricultural sector is an important factor in labour reallocation to other sectors of the economy... However, it has a positive relationship with inequality and explains about 13.0 per cent of the variation in income inequality. For instance, four of the seven countries with a <econ>total factor productivity index</econ> of greater than 0.40
-            (Seychelles, South Africa, Botswana and Namibia) had a Gini coefficient of more than 0.55. (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 11)">agricultural productivity per worker tends to push labour out of the sector</econ></td>
-            <td><pop data-toggle="tooltip" data-placement="top" title="The first concerns population policy. Indeed, the gradual decline of TFR initiated in 1995 will only partially ease population pressure on land, capital stock and public services. With continued growth of the rural labour force and a decline of an already small farm size, distress rural-urban migration will become inevitable, with the effect of raising urban inequality. Policy research will have to focus on measures to accelerate the decline in TFR, the reform of rental contracts in agriculture and the development of RNAA and manufacturing activities. (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 313)">distress rural-urban migration will become inevitable, with the effect of raising urban inequality</pop></td>
+            (Seychelles, South Africa, Botswana and Namibia) had a Gini coefficient of more than 0.55. (Odusola et al., 11)">"...agricultural productivity per worker tends to push labour out of the sector..."</econ></td>
+            <td><pop data-toggle="tooltip" data-placement="top" title="The first concerns population policy. Indeed, the gradual decline of TFR initiated in 1995 will only partially ease population pressure on land, capital stock and public services. With continued growth of the rural labour force and a decline of an already small farm size, distress rural-urban migration will become inevitable, with the effect of raising urban inequality. Policy research will have to focus on measures to accelerate the decline in TFR, the reform of rental contracts in agriculture and the development of RNAA and manufacturing activities. (Odusola et al., 313)">"...distress rural-urban migration will become inevitable, with the effect of raising urban inequality..."</pop></td>
     </tr>
         <tr>
       <th scope="row">Labor Force <br>(Industry)</th>
       <td>23.5%</td>  
       <td>6.4%</td>
       <td>7.4%</td>
+      <td><econ data-toggle="tooltip" data-placement="top" title="In any case, the marginal increase in the concentration coefficients of the mining and manufacturing sectors is an exception that accounts for a small share of the change in total inequality. (Odusola et al., 310)">"...the mining and manufacturing sectors is an exception that accounts for a small share of the change in total inequality."</econ></td>
     </tr>
         <tr>
       <th scope="row">Labor Force <br>(Services)</th>
       <td>71.9%</td>  
       <td>26.6% </td>
       <td>19.9% </td>
-      <td><econ data-toggle="tooltip" data-placement="top" title="This analysis shows that urban inequality depends, to an important extent, on the pattern of structural transformation followed over the last 20 years, in particular on the faster growth of employment in non-tradable and high-inequality commerce, FIRE, transport and public administration as compared to low-inequality and tradable urban agriculture, manufacturing and construction. (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 313)">faster growth of employment in non-tradable and high-inequality commerce...as compared to low-inequality and tradable urban agriculture</econ></td>
+      <td><econ data-toggle="tooltip" data-placement="top" title="This analysis shows that urban inequality depends, to an important extent, on the pattern of structural transformation followed over the last 20 years, in particular on the faster growth of employment in non-tradable and high-inequality commerce, FIRE, transport and public administration as compared to low-inequality and tradable urban agriculture, manufacturing and construction. (Odusola et al., 313)">"...the faster growth of employment in non-tradable and high-inequality commerce, FIRE, transport and public administration as compared to low-inequality and tradable urban agriculture, manufacturing and construction."</econ></td>
+       <td><econ data-toggle="tooltip" data-placement="top" title="A major contribution to rising urban inequality was the employment of household heads in commerce and 'other services'. Its importance rose in relation to 1995, while employment in urban agriculture and manufacturing became moderately equalising. (Odusola et al., 309)">"A major contribution to rising urban inequality was the employment of household heads in commerce and 'other services'."</econ></td>     
     </tr>
     <tr>
       <th scope="row">Unemployment Rate</th>
             <td>26.7%</td>
                 <td>10.3%</td>
                       <td>5.3%</td>
+                      <td><poli data-toggle="tooltip" data-placement="top" title="Finally, as noted above, the Government carried out public works to pave streets and build urban housing to increase employment in urban areas, thus creating more than 1.1 million jobs. Support to micro- and small-enterprises (MSE) generated another 1.5 million new jobs (AfDB, OECD and UNDP, 2014). (Odusola et al., 312)">"...Government carried out public works to pave streets and build urban housing to increase employment..."</poli></td>
                       
     </tr>
      <tr>
@@ -648,7 +737,17 @@
             <td>20.5%</td>
                   <td>13.9%</td>
                         <td>9.7%</td>
-                                <td><poli data-toggle="tooltip" data-placement="top" title="Third, the intensity of multidimensional poverty tends to drive conflicts; yet contrary to expectation, the relationship between conflicts and inequality is negative. For instance, most countries with a poverty headcount of over 60 per cent are also experiencing intense conflicts (e.g. Burundi, Central African Republic and Democratic Republic of the Congo), while countries with the highest level of inequality (e.g. Botswana, South Africa and Namibia) are categorized as non-conflict-prone countries. This finding recalls the words of the famous British political scientist, Harold Laski, who wrote 'A State divided into a small number of rich and a large number of poor will always develop a government manipulated by the rich to protect the amenities represented by their property.' (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 6)">"A State divided into a small number of rich and a large number of poor will always develop a government manipulated by the rich to protect amenities represented by their property."</poli></td>
+                                <td><poli data-toggle="tooltip" data-placement="top" title="Third, the intensity of multidimensional poverty tends to drive conflicts; yet contrary to expectation, the relationship between conflicts and inequality is negative. For instance, most countries with a poverty headcount of over 60 per cent are also experiencing intense conflicts (e.g. Burundi, Central African Republic and Democratic Republic of the Congo), while countries with the highest level of inequality (e.g. Botswana, South Africa and Namibia) are categorized as non-conflict-prone countries. This finding recalls the words of the famous British political scientist, Harold Laski, who wrote 'A State divided into a small number of rich and a large number of poor will always develop a government manipulated by the rich to protect the amenities represented by their property.' (Odusola et al., 6)">"'A State divided into a small number of rich and a large number of poor will always develop a government manipulated by the rich to protect amenities represented by their property.'"</poli></td>
+                     <td><poli data-toggle="tooltip" data-placement="top" title="In contrast, significant progress was made in the mid-2000s, when new programmes were launched to reduce poverty, food insecurity and malnutrition. As a result, near 70.0 per cent of public spending is now allocated to pro-poor sectors (table 13.16). The most important initiative was the introduction of the Productive Safety Net Programme (PSNP) in 2004 (World Bank, 2004). (Odusola et al., 311)">"As a result, near 70.0 per cent of public spending is now allocated to pro-poor sectors."</poli></td>
+    </tr>
+    <tr>
+        <th scope="row">Taxes<br>(% of GDP)</th>
+        <td>26.9%</td>
+        <td>14%</td>
+        <td>15.4%</td>
+        <td><poli data-toggle="tooltip" data-placement="top" title="With regard to indirect taxes, Muñoz and Cho (2003) and Mekonnen, Deribe and Gebremedhin (2013) show that the VAT on food is regressive, while the VAT on non-food items is progressive and fuel taxes are progressive only in rural areas. In turn, Geda and Shimeles (2005) show that taxes on tobacco, alcohol and butane are progressive. In view of these contrasting findings, it is difficult to come to a conclusion about the progressivity of indirect taxation. (Odusola et al., 311)">"In view of these contrasting findings, it is difficult to come to a conclusion about the progressivity of indirect taxation."</poli></td>
+        <td><poli data-toggle="tooltip" data-placement="top" title="Most social spending is well targeted, while participation in tax payment is progressive, although perfectible. Overall, direct taxes and transfers reduced the Gini index by about two percentage points (Lustig and Higgins, 2015). Some improvements are needed, however. For instance, the World Bank (2015) argues that when taking into account the direct and indirect taxes paid and the benefits received, one in ten households is impoverished. A possible solution to this problem is to raise the income threshold on which personal income tax and agricultural tax are applied. (Odusola et al., 313)">"A possible solution to this problem is to raise the income threshold on which personal income tax and agricultural tax are applied."</poli></p></td> 
+                <td><poli data-toggle="tooltip" data-placement="top" title="Many countries are deepening their direct taxation, while some are shifting from indirect to direct taxation to reduce income inequality. The reform in the tax collection system, which is blocking tax evasion by companies and individuals in South Africa, is also contributing to the enviable performance in fiscal distribution in the country. (Odusola et al., 167)">"...deepening their direct taxation, while some are shifting from indirect to direct taxation to reduce income inequality..."</poli></p></td>
     </tr>
     <tr>
         
@@ -656,6 +755,8 @@
             <td>51.3%</td>
                   <td>29.6%</td>
                         <td>25.6%</td>
+                        <td><edu data-toggle="tooltip" data-placement="top" title="In contrast, the inequality impact of the transition to services (including the public administration) was far greater, because few low-skilled people work in these sectors, which employ a sizeable proportion of people with secondary and tertiary education. Thus, over 1996-2005, rising demand for skilled jobs raised consumption per capita among the top quartiles. (Odusola et al., 307)">"...rising demand for skilled jobs raised consumption per capita among the top quartiles."</edu></td>
+                        <td><poli data-toggle="tooltip" data-placement="top" title="Despite the dominance of indirect taxes, Lustig and Higgins (2015) suggest that Ethiopia's taxation is progressive. This is mainly due to the progressive incidence of direct taxes on corporations, high-income households and rental-income earners. Yet, personal income tax is levied as of a very low level. (Odusola et al., 310)">"This is mainly due to the progressive incidence of direct taxes on corporations, high-income households and rental-income earners."</poli></td>
 
     </tr>
     <tr>
@@ -663,8 +764,9 @@
             <td>94.4%</td>
                   <td>77.9%</td>
                         <td>49.1%</td>
-                        <td><edu data-toggle="tooltip" data-placement="top" title="In Botswana, South Africa, Zimbabwe and Ghana, average number of years of education rose from 5.4 to 7.7 over the 1990-2009 period, and in six countries of East Africa, from 4.5 to 6.2. (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 66)">average number of years of education rose from 5.4 to 7.7</edu></td>
-                        <td><edu data-toggle="tooltip" data-placement="top" title="In contrast, differences in educational level do not significantly influence rural inequality, although they likely will do so when high-yielding varieties and improved farming techniques become more common. (Odusola et al., Income Inequality Trends in sub-Saharan Africa, 313)">household differences in educational achievements became less important</edu></td>
+                        <td><edu data-toggle="tooltip" data-placement="top" title="In Botswana, South Africa, Zimbabwe and Ghana, average number of years of education rose from 5.4 to 7.7 over the 1990-2009 period, and in six countries of East Africa, from 4.5 to 6.2. (Odusola et al., 66)">"...average number of years of education rose from 5.4 to 7.7..."</edu></td>
+                        <td><edu data-toggle="tooltip" data-placement="top" title="In contrast, differences in educational level do not significantly influence rural inequality, although they likely will do so when high-yielding varieties and improved farming techniques become more common. (Odusola et al., 313)">"...household differences in educational achievements became less important..."</edu></td>
+                        <td><poli data-toggle="tooltip" data-placement="top" title="Analysing the incidence of spending on education in 2011, Lustig and Higgins (2015) confirm that primary education is progressive (e.g. the Government opened a primary school in almost every village) and secondary education has become progressive in relative terms. Tertiary education is still regressive. (Odusola et al., 312)">"...the Government opened a primary school in almost every village..."</poli></td>
     </tr>
 
       
@@ -673,13 +775,14 @@
 
 <footer>
             <div class='row'>
-                    <div class ='col-md-3'><center><a href=www.wikipedia.com>Political History Source</a></center></div>
+                    <div class ='col-md-3'><center><a href=https://visualizedata.github.io/undp-inequality-trends/>Parsons UNDP Data Visualization</a></center></div>
                     <div class ='col-md-3'><center><a href=http://www.africa.undp.org/content/rba/en/home/library/reports/income-inequality-trends-in-sub-saharan-africa--divergence--dete.html>UNDP Report</a></center></div>
-                    <div class ='col-md-3'><center><a href=https://docs.google.com/spreadsheets/d/1n8nvdnSnx_gdHJEzeFC-e5WDz44HBGeo4tXkpRF3dfU/edit?usp=sharing>Data Source</a></center></div>
+                    <div class ='col-md-3'><center><a href=https://docs.google.com/spreadsheets/d/1n8nvdnSnx_gdHJEzeFC-e5WDz44HBGeo4tXkpRF3dfU/edit?usp=sharing>Gini Data Source and Exclusions</a></center></div>
                     <div class ='col-md-3'><center><a href=https://github.com/benzyi/ms-1/blob/master/README.md>ReadMe</a></center></div>
                 </div>
 </footer>
 </div>
+
     <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   

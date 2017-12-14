@@ -37,6 +37,8 @@ Wikipedia contributors, *Wikipedia, The Free Encyclopedia*.
 
 *Freedom in the World* 2017, New York: NY: Freedom House, 2017.
 
+Jennifer Widner, "Constitution Writing & Conflict Resolution: Data & Summaries," *Princeton University*, August 2005. 
+
 ### Javascript Libraries
 [d3](https://d3js.org/)
 
