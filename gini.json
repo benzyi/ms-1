@@ -4,8 +4,7 @@
     "Gini": "70.0",
     "YearLow": 1994,
     "GiniLow": 44.5,
-    "id": 2,
-    "Description": "The plantations formerly owned by white settlers were broken up and given to farmers, with the Kikuyu, the favoured recipients, along with their allies the Embu and the Meru. (Wikipedia, 2017)",
+    "Description": "British colonization until 1963. In 1994, the plantations formerly owned by white settlers were broken up and given to farmers, with the Kikuyu, the favoured recipients, along with their allies the Embu and the Meru. (Wikipedia, 2017)",
     "max": 100
   },
   {
@@ -14,8 +13,7 @@
     "Gini": "76.0",
     "YearLow": 2014,
     "GiniLow": 32.42,
-    "id": 3,
-    "Description": "A lot of Arab-African racial tensions. There was strong discrimination against the black population which included mass arrests as a form of intimidation. In October 1987, the government allegedly uncovered a tentative coup d'état by a group of black army officers. Fifty one officers were arrested and subjected to interrogation and torture. (Wikipedia, 2017)",
+    "Description": "French colonization until 1960. There was strong discrimination against the black population by the Arab population which included mass arrests as a form of intimidation. In October 1987, the government allegedly uncovered a tentative coup d'état by a group of black army officers. Fifty one officers were arrested and subjected to interrogation and torture. (Wikipedia, 2017)",
     "max": 100
   },
   {
@@ -24,8 +22,7 @@
     "Gini": 77.3,
     "YearLow": 2002,
     "GiniLow": 42.06,
-    "id": 4,
-    "Description": "The first multi-party elections since 1968, and only the second multi-party elections since independence in 1964. (Wikipedia, 2017)",
+    "Description": "British colonization until 1964. In 1991, they held their first multi-party elections since 1968, and only the second multi-party elections since independence in 1964. (Wikipedia, 2017)",
     "max": 100
   },
   {
@@ -34,8 +31,7 @@
     "Gini": "72.0",
     "YearLow": 2007,
     "GiniLow": 33,
-    "id": 5,
-    "Description": "After recently holding a one-party election, they lifted their ban on other political parties in 1992. (Wikipedia, 2017)",
+    "Description": "German colonization until 1919, then British mandate until 1961. After recently holding a one-party election, they lifted their ban on other political parties in 1992. (Wikipedia, 2017)",
     "max": 100
 
   },
@@ -45,8 +41,7 @@
     "Gini": 74.3,
     "YearLow": 2010,
     "GiniLow": 59.7,
-    "id": 6,
-    "Description": "After over 100 years of German and South African control, they gained independence in 1990. They introduced their own currency this year. (Wikipedia, 2017)",
+    "Description": "German colonization until 1990. After over 100 years of German and South African control, they gained independence in 1990. They introduced their own currency this year. (Wikipedia, 2017)",
     "max": 100
 
   },
@@ -56,8 +51,7 @@
     "Gini": 78.6,
     "YearLow": 2009,
     "GiniLow": 33.04,
-    "id": 7,
-    "Description": "They were in the midst of a civil war that lasted from 1990-1995. (Wikipedia, 2017)",
+    "Description": "French colonization until 1960. They were in the midst of a civil war that lasted from 1990-1995. (Wikipedia, 2017)",
     "max": 100
 
   },
@@ -67,8 +61,7 @@
     "Gini": 70.3,
     "YearLow": 2011,
     "GiniLow": 42.3,
-    "id": 8,
-    "Description": "Coming out of a 25-year state of emergency and recently becoming a republic, in 1995, held parliamentary elections where the ZANU-PF won unopposed for nearly half the seats. (Wikipedia, 2017)",
+    "Description": "British colonization until 1980. Coming out of a 25-year state of emergency and recently becoming a republic, in 1995, held parliamentary elections where the ZANU-PF won unopposed for nearly half the seats. (Wikipedia, 2017)",
     "max": 100
   },
   {
@@ -77,8 +70,7 @@
     "Gini": 77.1,
     "YearLow": 1987,
     "GiniLow": 45,
-    "id": 9,
-    "Description": "In 2007, Zuma is indicted to stand trial in the High Court on various counts of racketeering, money laundering, corruption and fraud. Also accused of rape, to which he says was consensual, while the victim denies it was. Despite all that, Zuma was sworn in as President of South Africa on May 9, 2009. (Wikipedia, 2017)",
+    "Description": "Dutch colonization and then British colonization until 1961, but legal apartheid until 1994. In 2007, Zuma is indicted to stand trial in the High Court on various counts of racketeering, money laundering, corruption and fraud. Also accused of rape, to which he says was consensual, while the victim denies it was. Despite all that, Zuma was sworn in as President of South Africa on May 9, 2009. (Wikipedia, 2017)",
     "max": 100
   }
 ]

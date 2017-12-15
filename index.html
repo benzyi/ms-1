@@ -13,13 +13,9 @@
                 background-color: snow;
                 font-family: "Open Sans", sans-serif;
             }
+            
             .container {
-                /*width: 100vw !important;    */
-                /*z-index: 0;*/
-                /*padding-bottom: 50px;*/
-                /*position: fixed;*/
             }
-            /*important overrides everything*/
             
             header {
                 position: fixed;
@@ -31,12 +27,7 @@
                 background-color: #0a97d9;
                 padding: 25px;
             }
-            
-            /*p1 {*/
-            /*    font-size: medium;*/
-            /*    position: relative;*/
-            /*}*/
-            
+
             h1 {
                 /*position: fixed;*/
                 padding: 15px;
@@ -49,34 +40,11 @@
                 font-style: italic;
                 padding-top: 15px;
             }
-            
-            /*div {*/
-                /*background-color: pink;*/
-                /*border: 1px dashed white;*/
-            /*    border-top: 1px black;*/
-            /*    min-height: 2em;*/
-            /*}*/
-            
-            /*div:hover {*/
-                /*border-top: 2px solid black;*/
-            /*}*/
-            
-            /*div > div > div:hover {*/
-            /*    background-color: snow;*/
-                /*font-weight: bolder;*/
-            /*}*/
+
             .row {
                 padding: 25px;
             }
-            
-            /*.col-xl-4:hover {*/
-            /*    color: #00689d;*/
-            /*}*/
-            
-            /*.col-xl-6:hover {*/
-            /*    color: #00689d;*/
-            /*}*/
-            
+
             th.row {
                 max-width: 400px !important;
             }
@@ -187,10 +155,6 @@
                 opacity: 1;
             }
             
-            /*.w-25 {*/
-            /*    background-color: none;*/
-            /*}*/
-            
             footer {
                 position: fixed;
                 width: 100%;
@@ -221,20 +185,9 @@
                 text-decoration: none;
             }
             
-            /*footer div {*/
-            /*    border: 0px;*/
-            /*    padding: 1px;*/
-            /*    font-size: small;*/
-            /*}*/
-            
             svg {
                 background-color: snow;
             }
-        
-            /*.content {*/
-            /*    background-color: snow;*/
-
-            /*}*/
             
             .mv_test {
                 font-weight: bolder;
@@ -405,7 +358,7 @@
                 <a href="https://benzyi.github.io/ms-1/index3.html"><button class="button"><span>Tanzania</span></button></a><br>
                 <a href="https://benzyi.github.io/ms-1/index2.html"><button class="button"><span>Ethiopia</span></button></a><br>
             </div>
-            <div class = 'menu'>This is a selection of countries with a Gini coefficient of 70 or above as recorded by the World Income Inequality Database. All countries happen to be African countries, with South Africa being the most recent to join the ranks of the highest income inequality in the world. All of these nations have had a significant series of political and social turbulence around the time of their entering this Club. It is unclear what significant events led up to South Africa's debut in this group.
+            <div class = 'menu'>This is a selection of countries with a Gini coefficient of 70 or above as recorded by the World Income Inequality Database. All countries happen to be African countries, with South Africa being the most recent to join the ranks of the highest income inequality in the world. All of these nations have had a significant series of political and social turbulence around the time of their entering this Club, and also all have been colonized by European nations dealing with segregation in various forms. The after shocks of colonization and apartheid are still prevalent and can be attributed as a influential factor in these record-setting high Gini coefficients.
             </div>
     
             <div class = 'graph'>
@@ -452,8 +405,6 @@
             svg.call(tip);
             
             //tooltip ends here
-            
-            // d3.select('graph').call(tip);
 
             graph.append('g')
                 //g is protected and it makes a group
@@ -467,26 +418,10 @@
                 .append('g')
                 .attr('data-attr-for-g', function(d) { return d.Gini })
                 .attr('data-attr-for-h', function(d) { return d.Gini })
-                // .attr('y', function(d, i) {
-                //     return y(i);
-                     
-                // })
                 .attr('transform', function(d, i) {
                     return 'translate(' + x(i)/2  + ', ' + 0 + ')';
                 })
             
-            // d3.select(this).append('text') //scaler
-            //     .attr('class', 'scalertop')
-            //     .attr('x', 10)
-            //     .attr('y', window.innerHeight / 8)
-            //     .text('G')
-                
-            // group.append('text') //scaler
-            //     .attr('class', 'scalerbtm')
-            //     .attr('x', 10)
-            //     .attr('y', window.innerHeight / 1.25)
-            //     .text('Gini = 1')
-                
             group.append('rect') //Static Max Bar
                 .attr('class', 'hundred')
                 .attr('y', function(d, i) { return window.innerHeight / 8; })
@@ -503,20 +438,6 @@
                 .attr('width', function(d, i) { return '5px'; })
                 .attr('height', function(d, i) { return y(d.Gini) / 2.65; })
                 .style('fill', '#e5243b')
-                
-                //IF BAR NEEDS INDEPENDENT HOVER, REACTIVATE
-                // .on('mouseover', function(){ 
-                //     d3.select(this)
-                //     .attr('width', '8px')
-                // })
-                // .on('mouseout', function(){
-                //     d3.select(this)
-                //     .transition()
-                //     .delay(500)
-                //     .ease(Math.sqrt)
-                //     .attr('width', '5px')
-                //     .style('fill', '#3f7e44')
-                // })
             
             group.append('rect') //some sort of setting... necessary
                 .attr('class', function(d, i) { return "test" }) //so whenever the actual gini coefficient is called, it will refer to here.
@@ -526,8 +447,6 @@
     
             group.append('text') //years static RED
                 .attr('class', 'years')
-                // .attr('y', window.innerHeight / 1.3 )
-                // .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth;})
                 .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 38) + ', ' + (window.innerHeight / 1.5) + ')rotate(-90)'; })
                 .text(function(d,i) { return d.Year })
                 .style('fill', '#19486a')
@@ -540,13 +459,10 @@
                 
             group.append('text') //country static
                 .attr('class', 'country')
-                // .attr('y', (window.innerHeight / 6.25))
-                // .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 23; })
                 .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 37) + ', ' + (window.innerHeight / 9) + ')rotate(-90)'; })
                 .text(function(d,i) { return d.Country;})
                 .style('opacity', 1)
                 .style('fill', '#19486a');
-                
                 
             group.append('circle')
                 .attr('r', 10)
@@ -554,7 +470,6 @@
                 .attr('cy', function(d) { return (window.innerHeight / 8) + y(d.Gini) / 2.65; })
                 .style('fill', '#e5243b')
                 .attr('class', 'circletime')
-                // .attr('width', function(d, i) { return '5px';});
                 //tooltip start
                 .on('mouseenter', tip.show)
                 .on('mouseleave', tip.hide)
@@ -576,8 +491,6 @@
                             var year = d3.select(this).datum().Year;
                             _g.append('text') //gini on hover
                                 .attr('class', 'mv_test')
-                                // .attr('y', (window.innerHeight / 6.25))
-                                // .attr('x', function(d, i) { return ((d.Year - 1971) / 40) * 0.8 * window.innerWidth + 23; })
                                 .attr('transform', function(d, i) { return 'translate(' + (((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 40) + ', ' + ((window.innerHeight / 8) + y(d.Gini) / 2.25) + ')rotate(-90)'; })
                                 .text(d.Gini)
                                 .style('opacity', 1)
@@ -647,10 +560,6 @@
                         .attr('width', '5px')
                         .attr('x', function(d, i) { return ((d.Year - 1950) / 65) * 0.8 * window.innerWidth + 30; })
                         .style('fill', '#e5243b')
-                       
-                        
-                    // d3.select('text')
-                    //     .style('fill', 'black');
                 })
 
         };
@@ -658,7 +567,6 @@
             </div>
             
         </div>
-    <!--</div>-->
 
             <div class='row'>
     <div class='col-xl-4'>
@@ -730,7 +638,7 @@
         <td>29%</td>
         <td>27.6%</td>
         <td>21.3%</td>
-        <td class="poli"><poli data-toggle="tooltip" data-placement="top" title="This also calls for improving progressive taxation in countries with high fiscal space and high income inequality, such as Lesotho, Namibia, South Africa, Angola and Zimbabwe. The coefficient of determination, which is 13.3 per cent, is relatively high, while correlation coefficients for both gross and net Gini measures are over 0.36. To this end, <poli>a progressive tax system and diversification of government revenues away from the extractive sector</poli> could help to reduce inequality in the continent. (Odusola et al., 172)"><a href="http://www.africa.undp.org/content/dam/rba/docs/Reports/undp-rba_Income%20Inequality%20in%20SSA_Chapter%207.pdf?download">"...a progressive tax system and diversification of government revenues away from the extractive sector could help to reduce inequality in the continent."</a></poli>
+        <td class="poli"><poli data-toggle="tooltip" data-placement="top" title="This also calls for improving progressive taxation in countries with high fiscal space and high income inequality, such as Lesotho, Namibia, South Africa, Angola and Zimbabwe. The coefficient of determination, which is 13.3 per cent, is relatively high, while correlation coefficients for both gross and net Gini measures are over 0.36. To this end, a progressive tax system and diversification of government revenues away from the extractive sector could help to reduce inequality in the continent. (Odusola et al., 172)"><a href="http://www.africa.undp.org/content/dam/rba/docs/Reports/undp-rba_Income%20Inequality%20in%20SSA_Chapter%207.pdf?download">"...a progressive tax system and diversification of government revenues away from the extractive sector could help to reduce inequality in the continent."</a></poli>
             </td>
             <td class="econ"><econ data-toggle="tooltip" data-placement="top" title="In contrast, FDIs in labour-intensive manufacturing and infrastructure (as in Ghana, Ethiopia, Mozambique and South Africa) raised the integration of domestic and world markets and favourably affected inequality via growth. (Odusola et al., 42)"><a href="http://www.africa.undp.org/content/dam/rba/docs/Reports/undp-rba_Income%20Inequality%20in%20SSA_Chapter%202.pdf?download">"...integration of domestic and world markets and favourably affected inequality via growth."</a></econ></td>
         
@@ -749,7 +657,7 @@
       <td>66.9%</td>
       <td>72.7%</td>
       <td class="econ"><econ data-toggle="tooltip" data-placement="top" title="He posits that agriculture plays a multidimensional role in the development process, which includes eliciting economic growth, providing foreign exchange earnings, generating employment opportunities, ensuring food security, contributing to value chains, reducing poverty, lowering income disparities and delivering environmental services, among others. Its neglect has hindered agriculture from performing these roles. For instance, in Africa, rural poverty affects more than 60 per cent of the population in 17 countries and between 50.0 and 60.0 per cent in 14 countries. It is particularly alarming in Zimbabwe and Madagascar, where it affects over 80 per cent. Yet, agriculture accounts for 66.0 per cent of total employment in SSA (excluding South Africa). (Odusola et al., 31)"><a href="http://www.africa.undp.org/content/dam/rba/docs/Reports/undp-rba_Income%20Inequality%20in%20SSA_Chapter%202.pdf?download">"...agriculture accounts for 66.0 per cent of total employment in SSA (excluding South Africa)."</a></econ></td>
-      <td class="econ"><econ data-toggle="tooltip" data-placement="top" title="At the bivariate level, agricultural productivity per worker tends to push labour out of the sector. Enhanced productivity in the agricultural sector is an important factor in labour reallocation to other sectors of the economy... However, it has a positive relationship with inequality and explains about 13.0 per cent of the variation in income inequality. For instance, four of the seven countries with a <econ>total factor productivity index</econ> of greater than 0.40
+      <td class="econ"><econ data-toggle="tooltip" data-placement="top" title="At the bivariate level, agricultural productivity per worker tends to push labour out of the sector. Enhanced productivity in the agricultural sector is an important factor in labour reallocation to other sectors of the economy... However, it has a positive relationship with inequality and explains about 13.0 per cent of the variation in income inequality. For instance, four of the seven countries with a total factor productivity index</econ> of greater than 0.40
             (Seychelles, South Africa, Botswana and Namibia) had a Gini coefficient of more than 0.55. (Odusola et al., 11)"><a href="http://www.africa.undp.org/content/dam/rba/docs/Reports/undp-rba_Income%20Inequality%20in%20SSA_Chapter%201.pdf?download">"...agricultural productivity per worker tends to push labour out of the sector..."</a></econ></td>
             <td class="pop"><pop data-toggle="tooltip" data-placement="top" title="The first concerns population policy. Indeed, the gradual decline of TFR initiated in 1995 will only partially ease population pressure on land, capital stock and public services. With continued growth of the rural labour force and a decline of an already small farm size, distress rural-urban migration will become inevitable, with the effect of raising urban inequality. Policy research will have to focus on measures to accelerate the decline in TFR, the reform of rental contracts in agriculture and the development of RNAA and manufacturing activities. (Odusola et al., 313)"><a href="http://www.africa.undp.org/content/dam/rba/docs/Reports/undp-rba_Income%20Inequality%20in%20SSA_Chapter%2013.pdf?download">"...distress rural-urban migration will become inevitable, with the effect of raising urban inequality..."</a></pop></td>
     </tr>
